@@ -8,5 +8,5 @@ Works on android 5+ (API level 21 and above)
 
 constantly being developed
 
-#All rights reserved by the lead developer @ Lakshay Dutta
+# All rights reserved by the lead developer @ Lakshay Dutta
 @github luckygr8
