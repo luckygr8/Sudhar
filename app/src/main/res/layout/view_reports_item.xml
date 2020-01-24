@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="@dimen/m1"
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_effect"
+        app:cardElevation="@dimen/cardElevation"
+        app:cardCornerRadius="@dimen/cardRadii"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <!-- upper block with color -->
+
+            <LinearLayout
+                android:id="@+id/viewReports_upper"
+                android:padding="@dimen/p2"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/p1"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/image"
+                        android:id="@+id/displayImage"
+                        android:layout_gravity="end"
+                        android:background="@drawable/rounded_corners_transparent"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/p1"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/map"
+                        android:layout_below="@id/displayImage"
+                        android:id="@+id/displayMap"
+                        android:layout_gravity="end"
+                        android:background="@drawable/rounded_corners_transparent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_marginEnd="@dimen/b2"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:textSize="@dimen/l"
+                        android:text="@string/dummy_line"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_marginTop="@dimen/m2"
+                    android:id="@+id/landmark"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/quicksand_semibold"
+                    android:textSize="@dimen/l"
+                    android:text="@string/dummy_string"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_marginTop="@dimen/m2"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/md"
+                    android:text="@string/dummy_string"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_marginTop="@dimen/m2"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textSize="@dimen/md"
+                    android:text="@string/dummy_paragraph"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <!-- lower block with white -->
+            <RelativeLayout
+                android:layout_marginTop="@dimen/p3"
+                android:paddingLeft="@dimen/p3"
+                android:layout_marginBottom="@dimen/p3"
+                android:paddingRight="@dimen/p3"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="@dimen/p1"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_corners"
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:text="@string/dummy_string"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="@dimen/l"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/l"
+                    android:text="@string/dummy_string"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

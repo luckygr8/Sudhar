@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/viewReports_spinner"
+        android:layout_height="@dimen/b3"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/viewReports_recycler"
+        android:layout_width="match_parent"
+        android:layout_below="@id/viewReports_spinner"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

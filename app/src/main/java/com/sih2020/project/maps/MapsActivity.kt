@@ -1,0 +1,60 @@
+package com.sih2020.project.maps
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.sih2020.project.R
+import com.sih2020.project.constants.Constants
+
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
+    private lateinit var mMap: GoogleMap
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_maps)
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
+
+    /**
+     * @since 24-01-2020
+     * Auto-generated class.
+     *
+     * @param latitude
+     * @param longitude
+     *
+     * latitude and longitude are passed into the Maps Activity via Intent.
+     *
+     * @see com.sih2020.project.viewReports.ViewReportsFragment
+     *
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+        val location = LatLng(
+            intent.getDoubleExtra(Constants.PROBLEM_LATITUDE,0.00),
+            intent.getDoubleExtra(Constants.PROBLEM_LONGITUDE,0.00)
+        )
+        Log.d(Constants.LOG_TAG,"${location.latitude}  ${location.longitude}")
+        // TODO fix hardcode string / MAP doesnt work
+        mMap.addMarker(MarkerOptions().position(location).title("View Location"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+    }
+}

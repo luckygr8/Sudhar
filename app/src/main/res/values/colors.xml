@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">#111</color>
+    <color name="colorAccent">#ff9d76</color>
+
+    <!-- primary color -->
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+
+    <!-- modded color -->
+    <color name="white2">#EEE</color>
+    <color name="greyishWhite">#dddddd</color>
+    <color name="grey">#5d5b6a</color>
+    <color name="black1">#333</color>
+
+    <!-- material light colors -->
+    <color name="lightPink">#ffb6b9</color>
+    <color name="peach">#fae3d9</color>
+    <color name="offBlue">#bbded6</color>
+    <color name="darkerThanOffBlue">#8ac6d1</color>
+    <color name="lightGreen">#52de97</color>
+    <color name="lightPurple">#be9fe1</color>
+    <color name="veryLightPurple">#c9b6e4</color>
+    <color name="blendOrangeBrown">#ff9d76</color>
+    <color name="shallowPurple">#a278b5</color>
+
+
+</resources>
