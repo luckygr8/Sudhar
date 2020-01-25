@@ -44,6 +44,10 @@ class ViewReportRecyclerAdapter(
         return position
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     override fun getItemCount() = datalist.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -136,6 +140,33 @@ class ViewReportRecyclerAdapter(
     private fun remove(position: Int) {
         datalist.removeAt(position)
         notifyDataSetChanged()
+    }
+
+    private fun voteToggle(vote:Int , value:Int , holder: ViewHolder){
+        /**
+         * vote -> 1 means upvote , -1 means downvote
+         * value -> 1 means did , -1 means undo
+         */
+        when(vote){
+            1 ->{
+                if(value==1) // did an upvote DO remove any downvotes
+                {
+                    holder.upvote.setBackgroundResource(R.drawable.didupvote)
+                    holder.downvote.setBackgroundResource(R.drawable.downvote)
+                }
+                else // removed the upvote
+                    holder.upvote.setBackgroundResource(R.drawable.upvote)
+            }
+            -1 ->{
+                if(value==1) // did a downvote DO remove any upvotes
+                {
+                    holder.downvote.setBackgroundResource(R.drawable.diddownvote)
+                    holder.upvote.setBackgroundResource(R.drawable.upvote)
+                }
+                else // removed the downvote
+                    holder.downvote.setBackgroundResource(R.drawable.downvote)
+            }
+        }
     }
 
     private fun setValues(problem: Problem, holder: ViewHolder) {

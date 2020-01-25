@@ -151,7 +151,11 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     }
 
     private fun attachRecycler(problems: ArrayList<Problem>) {
-        viewReports_recycler.adapter = ViewReportRecyclerAdapter(problems, this)
+        val adapter = ViewReportRecyclerAdapter(problems, this)
+        adapter.setHasStableIds(true)
+
+        viewReports_recycler.setItemViewCacheSize(problems.size)
+        viewReports_recycler.adapter = adapter
     }
 
 
