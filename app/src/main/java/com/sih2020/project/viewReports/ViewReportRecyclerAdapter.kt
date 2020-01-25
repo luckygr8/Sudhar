@@ -121,8 +121,8 @@ class ViewReportRecyclerAdapter(
         }
 
         /**
-         * Upvote and downvote functionality
-         * TODO : send /get requests for upvote and downvote
+         * Upvote and didDownvote functionality
+         * TODO : send /get requests for didUpvote and didDownvote
          */
         holder.upvote.setOnClickListener{
 
