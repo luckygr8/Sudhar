@@ -58,6 +58,8 @@
     <string name="signUpSuccess">You were successfully signed up and Logged in</string>
     <string name="signUpFailure">The sign up process could not complete. Please try later</string>
     <string name="checkYourOtp">If the email was valid , an OTP has been sent to it.</string>
+    <string name="upvote">upvote</string>
+    <string name="downvote">downvote</string>
     <!---->
 
     <!-- status words -->

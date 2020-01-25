@@ -52,6 +52,8 @@
     <string name="signUpSuccess">आपने सफलतापूर्वक साइन अप किया और लॉग इन किया</string>
     <string name="signUpFailure">साइन अप प्रक्रिया पूरी नहीं हो सकी। बाद में कोशिश करें</string>
     <string name="checkYourOtp">यदि ईमेल वैध था, तो उसे एक OTP भेजा गया है</string>
+    <string name="upvote">वोट दें</string>
+    <string name="downvote">असहमत</string>
 
     <!-- snack bar prompts -->
     <string name="error">एक गलती हुई है। कृपया पुन: प्रयास करें</string>

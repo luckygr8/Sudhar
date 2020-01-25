@@ -119,6 +119,18 @@ class ViewReportRecyclerAdapter(
 
             fragment.startActivity(intent)
         }
+
+        /**
+         * Upvote and downvote functionality
+         * TODO : send /get requests for upvote and downvote
+         */
+        holder.upvote.setOnClickListener{
+
+        }
+
+        holder.downvote.setOnClickListener{
+
+        }
     }
 
     private fun remove(position: Int) {
@@ -157,6 +169,10 @@ class ViewReportRecyclerAdapter(
         var date: TextView = itemView.findViewById(R.id.date)
         var displayImage: ImageView = itemView.findViewById(R.id.displayImage)
         var displayMap: ImageView = itemView.findViewById(R.id.displayMap)
+
+        // Added 25-01-2020
+        var upvote:ImageView = itemView.findViewById(R.id.upvote)
+        var downvote:ImageView = itemView.findViewById(R.id.downvote)
 
     }
 }
