@@ -175,13 +175,7 @@ class LoginFragment : Fragment(), Initializers,
             return
         }
 
-        val user = User(email = LOGINEMAIL, password = LOGINPASSWORD)
-        /**
-         * TODO
-         * @anchal work on this
-         * Make custom Toast message by building a new layout.
-         */
-        //val user = User(email = LOGINEMAIL , password = Cypher.hashPassword(LOGINPASSWORD))
+        val user = User(email = LOGINEMAIL , password = Cypher.hashPassword(LOGINPASSWORD))
         Functions.postJsonObject(
             RestURLs.POST_LOGIN_T, this,
             Constants.OBJECT_TYPE_USER, user, loginToken
@@ -273,7 +267,7 @@ class LoginFragment : Fragment(), Initializers,
 
     private fun verify(otp: String): Boolean = Functions.getOTP().equals(otp)
 
-    private fun toggleNonOtpWidgets(toggle: Boolean) {
+    private fun toggleNonOtpWidgets(toggle: Boolean) =
         /**
          * We need to disable these fields before the email verification is complete via OTP
          * Users can not enter any data here unless the OTP is verified
@@ -282,22 +276,9 @@ class LoginFragment : Fragment(), Initializers,
          * @since 22-01-20
          */
         when (toggle) {
-            false -> {
-                /*name.visibility=View.GONE
-                password.visibility=View.GONE
-                confirmPassword.visibility=View.GONE
-                signupButton.visibility=View.GONE*/
-                signupToggelable.visibility = View.INVISIBLE
-            }
-            true -> {
-                /*name.visibility=View.VISIBLE
-                password.visibility=View.VISIBLE
-                confirmPassword.visibility=View.VISIBLE
-                signupButton.visibility=View.VISIBLE*/
-                signupToggelable.visibility = View.VISIBLE
-            }
+            false -> signupToggelable.visibility = View.INVISIBLE
+            true -> signupToggelable.visibility = View.VISIBLE
         }
-    }
 
     private fun signup() {
         val NAME = name.text.toString()

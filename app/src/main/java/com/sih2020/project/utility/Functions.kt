@@ -108,7 +108,12 @@ object Functions {
     }
 
     /**
-     * TODO
+     * @author Lakshay Dutta
+     *
+     * default Policy is used to prevent the applicaton sending multiple
+     * POST requests if connection is weak etc.
+     *
+     * @see Functions.retryPolicy
      */
     fun postJsonObject(
         URL: String,
@@ -256,9 +261,18 @@ object Functions {
     }*/
 
     /**
-     * TODO
+     * Used for sending notifications to the application
+     *
+     * @see Constants.CHANNEL_ID
+     *
+     *
      */
     fun showNotification(title: Int, content: Int) {
+
+        /**
+         * @param title is a small heading that shows in the notification
+         * @param content is description. Does not support more than one line
+         */
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
