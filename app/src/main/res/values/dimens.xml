@@ -8,7 +8,7 @@
     <dimen name="none">0dp</dimen>
 
     <dimen name="cardRadii">5dp</dimen>
-    <dimen name="cardElevation">2dp</dimen>
+    <dimen name="cardElevation">6dp</dimen>
     
     <!-- text sizes -->
     <dimen name="h1">22sp</dimen>

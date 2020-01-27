@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/p7"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <!-- email -->
             <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/p7"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <!-- email -->
             <com.google.android.material.textfield.TextInputLayout

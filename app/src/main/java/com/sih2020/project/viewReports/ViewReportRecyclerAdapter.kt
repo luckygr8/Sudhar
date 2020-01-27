@@ -171,7 +171,7 @@ class ViewReportRecyclerAdapter(
 
     private fun setValues(problem: Problem, holder: ViewHolder) {
         //holder.viewportsUpper.setBackgroundColor(Functions.getRandomMaterialColor())
-        holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.greyishWhite))
+        holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.black1))
         holder.description.text = problem.description
         holder.address.text = problem.address
         holder.landmark.text = problem.landmark

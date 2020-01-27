@@ -25,7 +25,7 @@ object RestURLs {
      * These will not work in your PC
      */
 
-    val BASE_URL_T = "http://192.168.43.204:3000/"
+    val BASE_URL_T = "http://192.168.43.66:3000/"
     val GET_CITIES_T = "${BASE_URL_T}city/"
     val GET_PROBLEMS_T = BASE_URL_T
     val POST_LOGIN_T = "${BASE_URL_T}login/"
