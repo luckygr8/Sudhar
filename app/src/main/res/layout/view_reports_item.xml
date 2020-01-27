@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:fontFamily="@font/quicksand_medium"
                     android:textSize="@dimen/md"
-                    android:text="@string/dummy_paragraph"
+                    android:text="@string/dummy_line"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
@@ -115,23 +115,47 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
-                    <!-- upvote -->
-                    <ImageView
-                        android:id="@+id/upvote"
+                    <!-- upvote and view how many upvotes -->
+                    <RelativeLayout
                         android:layout_marginEnd="@dimen/m1"
                         android:layout_width="wrap_content"
-                        android:src="@drawable/upvote"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/upvote" />
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/upvote"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/upvote"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/upvote" />
+
+                        <TextView
+                            android:layout_below="@id/upvote"
+                            android:layout_width="wrap_content"
+                            android:text="0"
+                            android:layout_height="wrap_content"/>
+
+
+                    </RelativeLayout>
 
                     <!-- downvote -->
-                    <ImageView
-                        android:id="@+id/downvote"
+                    <RelativeLayout
                         android:layout_marginStart="@dimen/m1"
                         android:layout_width="wrap_content"
-                        android:src="@drawable/downvote"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/downvote" />
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/downvote"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/downvote"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/downvote" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="0"
+                            android:layout_below="@id/downvote"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
