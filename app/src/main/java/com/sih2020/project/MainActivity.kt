@@ -97,3 +97,27 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+/*<!-- for display image -->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/p1"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/image"
+                        android:id="@+id/displayImage"
+                        android:layout_gravity="end"
+                        android:background="@drawable/rounded_corners_transparent"
+                        android:layout_height="wrap_content"/>
+
+                    <!-- for display Map -->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/p1"
+                        android:layout_marginEnd="@dimen/m2"
+                        android:layout_toStartOf="@id/displayImage"
+                        android:src="@drawable/map"
+                        android:id="@+id/displayMap"
+                        android:layout_gravity="end"
+                        android:background="@drawable/rounded_corners_transparent"
+                        android:layout_height="wrap_content"
+                        />*/

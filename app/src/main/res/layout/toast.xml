@@ -6,7 +6,7 @@ android:background="@drawable/toast_background"
     android:gravity="center"
     android:layout_height="wrap_content">
 
-    <com.romainpiel.shimmer.ShimmerTextView
+    <TextView
         android:padding="@dimen/p1"
         android:textAlignment="center"
         android:id="@+id/toastMessage"

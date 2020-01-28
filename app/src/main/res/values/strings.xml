@@ -74,7 +74,7 @@
     <string name="error">An error has occurred. Let\'s try again</string>
 
     <!-- array of material colors -->
-    <string-array name="materialColors">
+    <string-array name="lightMaterialColors">
         <item>#ffb6b9</item>
         <item>#fae3d9</item>
         <item>#bbded6</item>
@@ -84,6 +84,32 @@
         <item>#c9b6e4</item>
         <item>#ffad76</item>
         <item>#a5f8b5</item>
+
+        <!-- added new pallet -->
+        <item>#f8bbd0</item>
+        <item>#e1bee7</item>
+        <item>#f48fb1</item>
+        <item>#e57373</item>
+        <item>#d1c4e9</item>
+        <item>#90caf9</item>
+        <item>#80deea</item>
+        <item>#80cbc4</item>
+        <item>#dce775</item>
     </string-array>
+
+    <string-array name="darkMaterialColors">
+        <item>#c62828</item>
+        <item>#ad1457</item>
+        <item>#6a1b9a</item>
+        <item>#283593</item>
+        <item>#00796b</item>
+        <item>#e65100</item>
+        <item>#ff4081</item>
+        <item>#5e35b1</item>
+        <item>#0091ea</item>
+        <item>#304ffe</item>
+    </string-array>
+
+    <!-- TODO -->
     <string name="title_activity_maps">View on Map</string>
 </resources>

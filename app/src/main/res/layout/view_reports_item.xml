@@ -22,7 +22,6 @@
 
             <!-- upper block with color -->
             <LinearLayout
-                android:theme="@style/ThemeWithWhiteText"
                 android:id="@+id/viewReports_upper"
                 android:padding="@dimen/p2"
                 android:layout_width="match_parent"
@@ -31,6 +30,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
 
                     <!-- for display image -->
                     <ImageView
@@ -169,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:text="@string/dummy_string"
                     android:fontFamily="@font/quicksand_bold"
-                    android:textSize="@dimen/l"
+                    android:textSize="@dimen/sm"
                     android:layout_height="wrap_content"/>
 
                 <!-- for date-->

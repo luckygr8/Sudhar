@@ -68,7 +68,8 @@
                 android:text="@string/login"
                 android:textSize="@dimen/l" />
 
-            <com.romainpiel.shimmer.ShimmerTextView
+            <!-- <com.romainpiel.shimmer.ShimmerTextView -->
+            <TextView
                 android:id="@+id/signupLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +79,8 @@
                 android:textColor="#444"
                 android:textSize="@dimen/md" />
 
-            <com.romainpiel.shimmer.ShimmerTextView
+            <!-- <com.romainpiel.shimmer.ShimmerTextView -->
+            <TextView
                 android:id="@+id/forgotPasswordLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

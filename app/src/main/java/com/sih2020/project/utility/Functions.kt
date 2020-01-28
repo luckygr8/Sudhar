@@ -19,6 +19,7 @@ import android.os.Handler
 import android.os.Vibrator
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -30,12 +31,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.romainpiel.shimmer.Shimmer
-import com.romainpiel.shimmer.ShimmerTextView
-import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.MainActivity
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
+import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
 import org.json.JSONObject
@@ -47,22 +46,26 @@ object Functions {
     private var LATITUDE: Double? = null
     private var LONGITUDE: Double? = null
 
-    private val retryPolicy = DefaultRetryPolicy(0,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
+    private val retryPolicy = DefaultRetryPolicy(
+        0,
+        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+    )
 
     private var requestQueue = Volley.newRequestQueue(MainActivity.getMainContext())
     private var colorArray: Array<String>
     private var res = MainActivity.getMainContext().resources
     private var toast: Toast
-    private var textView: ShimmerTextView
+    private var textView: TextView
     private val vibrator: Vibrator =
         MainActivity.getMainContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-    private val handler:Handler = Handler()
+    private val handler: Handler = Handler()
 
     fun removeCallbacks() = handler.removeCallbacksAndMessages(null)
 
     init {
-        colorArray = res.getStringArray(R.array.materialColors)
+        colorArray = res.getStringArray(R.array.lightMaterialColors)
 
         toast = Toast(MainActivity.getMainContext())
         val inflater =
@@ -74,7 +77,6 @@ object Functions {
 
         textView = layout.findViewById(R.id.toastMessage)
         toast.view = layout
-        Shimmer().start(textView)
         toast.duration = Toast.LENGTH_LONG
     }
 
@@ -85,7 +87,7 @@ object Functions {
 
     fun getJsonArray(URL: String, fragment: HttpRequests, token: Int) {
         if (!isInternetOn()) {
-            showToast(R.string.internetoff,true)
+            showToast(R.string.internetoff, true)
             vibrate()
             return
         }
@@ -122,9 +124,9 @@ object Functions {
         data: Any,
         token: Int
     ) {
-        requestQueue.cancelAll{true}
+        requestQueue.cancelAll { true }
         val json = parseObjectToJson(objectType, data)
-        Log.d(Constants.LOG_TAG,json.toString())
+        Log.d(Constants.LOG_TAG, json.toString())
         val request = object : JsonObjectRequest(
             Method.POST,
             URL,
@@ -176,9 +178,9 @@ object Functions {
                     //put(Constants.PROBLEM_STATUS, problem.status)
                     put(Constants.PROBLEM_USERID, problem.userid)
                     put(Constants.PROBLEM_CITY, problem.city)
-                    put(Constants.PROBLEM_ROAD_TYPE,problem.roadtype)
+                    put(Constants.PROBLEM_ROAD_TYPE, problem.roadtype)
                     put(Constants.PROBLEM_WARDID, problem.wardid)
-                    put(Constants.PROBLEM_IMAGEID,problem.imageid)
+                    put(Constants.PROBLEM_IMAGEID, problem.imageid)
                     //put(Constants.PROBLEM_LATITUDE, problem.latitude)
                     //put(Constants.PROBLEM_LONGITUDE, problem.longitude)
 
@@ -216,39 +218,41 @@ object Functions {
         return null
     }*/
 
-    fun setOTP(OTP:String){
+    fun setOTP(OTP: String) {
         val editor = MainActivity.getMainContext()
             .getSharedPreferences(Constants.SP_LOGIN, Context.MODE_PRIVATE).edit()
-        editor.putString(Constants.SP_SIGNUP_OTP,OTP)
+        editor.putString(Constants.SP_SIGNUP_OTP, OTP)
 
         editor.apply()
 
         handler.postDelayed({
-            editor.putString(Constants.SP_SIGNUP_OTP,"")
+            editor.putString(Constants.SP_SIGNUP_OTP, "")
             editor.apply()
             //showToast(res.getString(R.string.OtpTimeOut),false)
 
-        },Constants.DURATION_OTP)
-    }
-    fun getOTP():String?{
-        val preferences = MainActivity.getMainContext()
-            .getSharedPreferences(Constants.SP_LOGIN, Context.MODE_PRIVATE)
-        return preferences.getString(Constants.SP_SIGNUP_OTP,"")
+        }, Constants.DURATION_OTP)
     }
 
-    fun setCurrentUser(user:User){
+    fun getOTP(): String? {
+        val preferences = MainActivity.getMainContext()
+            .getSharedPreferences(Constants.SP_LOGIN, Context.MODE_PRIVATE)
+        return preferences.getString(Constants.SP_SIGNUP_OTP, "")
+    }
+
+    fun setCurrentUser(user: User) {
         val editor = MainActivity.getMainContext()
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE).edit()
-        editor.putString(Constants.SP_CURRENT_USER_NAME,user.username)
-        editor.putString(Constants.SP_CURRENT_USER_EMAIL,user.email)
+        editor.putString(Constants.SP_CURRENT_USER_NAME, user.username)
+        editor.putString(Constants.SP_CURRENT_USER_EMAIL, user.email)
         editor.apply()
     }
-    fun getCurrentUser():User?{
+
+    fun getCurrentUser(): User? {
         val pref = MainActivity.getMainContext()
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE)
         return User(
-            username = pref.getString(Constants.SP_CURRENT_USER_NAME,""),
-            email = pref.getString(Constants.SP_CURRENT_USER_EMAIL,"")
+            username = pref.getString(Constants.SP_CURRENT_USER_NAME, ""),
+            email = pref.getString(Constants.SP_CURRENT_USER_EMAIL, "")
         )
     }
 
@@ -315,27 +319,26 @@ object Functions {
         return false
     }
 
-    fun showToast(id: Int , vibrate:Boolean) {
+    fun showToast(id: Int, vibrate: Boolean) {
         textView.text = res.getString(id)
         toast.show()
 
-        if(vibrate)
+        if (vibrate)
             vibrate()
     }
 
     @Deprecated("Preferred showToast is (id:Int , vibrate:Boolean)")
-    /* Use the showToast with the params <Int,Boolean>*/
-    fun showToast(str: String , vibrate:Boolean) {
+            /* Use the showToast with the params <Int,Boolean>*/
+    fun showToast(str: String, vibrate: Boolean) {
         textView.text = str
         toast.show()
 
-        if(vibrate)
+        if (vibrate)
             vibrate()
     }
 
     fun vibrate() =
         vibrator.vibrate(500)
-
 
 
     /**
@@ -372,6 +375,7 @@ object Functions {
             )
         }
     }
+
     fun updateLocation(lat: Double?, long: Double?) {
         this.LONGITUDE = long
         this.LATITUDE = lat

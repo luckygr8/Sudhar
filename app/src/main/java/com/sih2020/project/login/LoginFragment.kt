@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.android.volley.VolleyError
 import com.google.android.material.button.MaterialButton
@@ -36,8 +37,8 @@ class LoginFragment : Fragment(), Initializers,
     private lateinit var loginEmail: TextInputEditText
     private lateinit var loginPassword: TextInputEditText
     private lateinit var loginButton: MaterialButton
-    private lateinit var signupLink: ShimmerTextView
-    private lateinit var forgotPasswordLink: ShimmerTextView
+    private lateinit var signupLink: TextView
+    private lateinit var forgotPasswordLink: TextView
     //
 
     private lateinit var register_user_screen: LinearLayout
@@ -67,7 +68,7 @@ class LoginFragment : Fragment(), Initializers,
         loginPassword = root.findViewById(R.id.loginPassword)
         loginButton = root.findViewById(R.id.loginButton)
         signupLink = root.findViewById(R.id.signupLink)
-        Shimmer().start(signupLink)
+
         signupLink.setOnClickListener {
 
             user_login_screen.animate().alpha(0f).scaleX(0f).scaleY(0f).setDuration(200)
@@ -77,7 +78,7 @@ class LoginFragment : Fragment(), Initializers,
                 }
         }
         forgotPasswordLink = root.findViewById(R.id.forgotPasswordLink)
-        Shimmer().start(forgotPasswordLink)
+
         forgotPasswordLink.setOnClickListener {
 
         }
