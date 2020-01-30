@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_marginBottom="@dimen/m5"
+    android:layout_marginBottom="@dimen/m3"
     android:layout_height="wrap_content">
 
     <!-- top level card layout -->
     <androidx.cardview.widget.CardView
         android:layout_margin="@dimen/m1"
         android:layout_width="match_parent"
-        android:background="@drawable/shadow_effect"
         app:cardElevation="@dimen/cardElevation"
+        android:fadingEdgeLength="@dimen/m2"
         app:cardCornerRadius="@dimen/cardRadii"
         android:layout_height="wrap_content">
 

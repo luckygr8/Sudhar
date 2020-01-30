@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#111</color>
-    <color name="colorAccent">#ff9d76</color>
+    <color name="colorAccent">#ff9d3f</color>
 
     <!-- primary color -->
     <color name="white">#FFF</color>
@@ -22,7 +22,7 @@
     <color name="lightGreen">#52de97</color>
     <color name="lightPurple">#be9fe1</color>
     <color name="veryLightPurple">#c9b6e4</color>
-    <color name="blendOrangeBrown">#ff9d76</color>
+    <color name="blendOrangeBrown">#ff9d3f</color>
     <color name="shallowPurple">#a278b5</color>
 
 

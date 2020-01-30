@@ -75,13 +75,18 @@
 
     <!-- array of material colors -->
     <string-array name="lightMaterialColors">
-        <item>#ffb6b9</item>
-        <item>#fae3d9</item>
-        <item>#bbded6</item>
-        <item>#8ac6d1</item>
         <item>#52de97</item>
         <item>#be9fe1</item>
+        <item>#ffb74d</item>
+        <item>#ffb6b9</item>
+        <item>#bcaaa4</item>
+        <item>#fae3d9</item>
+        <item>#bbded6</item>
+        <item>#a98274</item>
+        <item>#ce93d8</item>
+        <item>#8ac6d1</item>
         <item>#c9b6e4</item>
+        <item>#ec518a</item>
         <item>#ffad76</item>
         <item>#a5f8b5</item>
 
@@ -108,6 +113,7 @@
         <item>#5e35b1</item>
         <item>#0091ea</item>
         <item>#304ffe</item>
+        <item>#e53935</item>
     </string-array>
 
     <!-- TODO -->

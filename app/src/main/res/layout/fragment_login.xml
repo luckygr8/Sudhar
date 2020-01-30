@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/p7"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <!-- email -->
             <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/p7"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <!-- email -->
             <com.google.android.material.textfield.TextInputLayout
@@ -125,13 +125,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/checkEmail"
                 android:layout_width="wrap_content"
+                app:icon="@drawable/check"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/blendOrangeBrown"
                 android:fontFamily="@font/quicksand_semibold"
-                android:padding="@dimen/p2"
+                android:padding="@dimen/p1"
                 android:text="@string/sendOTP"
-                android:textSize="@dimen/l" />
+                android:textSize="@dimen/md" />
 
             <!-- enter OTP -->
                 <EditText

@@ -74,7 +74,7 @@ class ViewReportRecyclerAdapter(
              * set setCanceledOnTouchOutside = "false" to prevent dismiss on touch outside
              */
 
-            val dialog = Dialog(MainActivity.getMainContext())
+            val dialog = Dialog(MainActivity.getMainContext(),R.style.SlideInOut)
             dialog.setContentView(R.layout.image_loader_dialog)
 
             val imageLoadingProgress =
@@ -171,7 +171,7 @@ class ViewReportRecyclerAdapter(
 
     private fun setValues(problem: Problem, holder: ViewHolder) {
         holder.viewportsUpper.setBackgroundColor(Functions.getRandomMaterialColor())
-        //holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.black1))
+       // holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.greyishWhite))
         holder.description.text = problem.description
         holder.address.text = problem.address
         holder.landmark.text = problem.landmark
