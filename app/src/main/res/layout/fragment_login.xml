@@ -108,8 +108,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/enter_your_email"
+                app:errorEnabled="true"
                 android:padding="@dimen/p1"
-                app:errorEnabled="true">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
@@ -137,6 +138,7 @@
             <!-- enter OTP -->
                 <EditText
                     android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners_transparent"
                     android:padding="@dimen/p1"
                     android:id="@+id/verifyOTP"
                     android:layout_width="wrap_content"

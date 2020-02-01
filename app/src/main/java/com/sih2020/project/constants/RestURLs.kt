@@ -31,4 +31,5 @@ object RestURLs {
     val POST_LOGIN_T = "${BASE_URL_T}login/"
     val POST_REGISTER_T = "${BASE_URL_T}register/"
     val POST_CHECK_T = "${BASE_URL_T}check/"
+    val GET_PHOTO = "${BASE_URL_T}photo/"
 }

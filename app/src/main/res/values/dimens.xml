@@ -7,8 +7,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="none">0dp</dimen>
 
-    <dimen name="cardRadii">5dp</dimen>
-    <dimen name="cardElevation">12dp</dimen>
+    <dimen name="cardRadii">15dp</dimen>
+    <dimen name="cardElevation">4dp</dimen>
     
     <!-- text sizes -->
     <dimen name="h1">22sp</dimen>
@@ -45,6 +45,8 @@
     <dimen name="b3">60dp</dimen>
     <dimen name="b4">80dp</dimen>
     <dimen name="b5">100dp</dimen>
+    <dimen name="b6">120dp</dimen>
+    <dimen name="b7">140dp</dimen>
     <dimen name="b9">180dp</dimen>
 
     <dimen name="standard1">70dp</dimen>

@@ -74,7 +74,7 @@ class ViewReportRecyclerAdapter(
              * set setCanceledOnTouchOutside = "false" to prevent dismiss on touch outside
              */
 
-            val dialog = Dialog(MainActivity.getMainContext(),R.style.SlideInOut)
+            val dialog = Dialog(MainActivity.getMainContext(), R.style.SlideInOut)
             dialog.setContentView(R.layout.image_loader_dialog)
 
             val imageLoadingProgress =
@@ -85,7 +85,8 @@ class ViewReportRecyclerAdapter(
             //dialog.setCanceledOnTouchOutside(false)
             dialog.show()
 
-            Glide.with(fragment).load("${RestURLs.BASE_URL}${problem.imageid}")
+            //Glide.with(fragment).load("${RestURLs.BASE_URL}${problem.imageid}")
+            Glide.with(fragment).load(RestURLs.GET_PHOTO)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -115,7 +116,7 @@ class ViewReportRecyclerAdapter(
          * Displays given Problem.lat and Problem.lng coordinates on the map
          */
         holder.displayMap.setOnClickListener{
-            val intent = Intent(fragment.context,MapsActivity::class.java)
+            val intent = Intent(fragment.context, MapsActivity::class.java)
 
             // Assign latitude and longitude from the problem to be passes into the Maps class
             intent.putExtra(Constants.PROBLEM_LATITUDE,problem.latitude)
@@ -128,11 +129,11 @@ class ViewReportRecyclerAdapter(
          * Upvote and didDownvote functionality
          * TODO : send /get requests for didUpvote and didDownvote
          */
-        holder.upvote.setOnClickListener{
+        holder.upvote.setOnClickListener {
 
         }
 
-        holder.downvote.setOnClickListener{
+        holder.downvote.setOnClickListener {
 
         }
     }
@@ -142,28 +143,26 @@ class ViewReportRecyclerAdapter(
         notifyDataSetChanged()
     }
 
-    private fun voteToggle(vote:Int , value:Int , holder: ViewHolder){
+    private fun voteToggle(vote: Int, value: Int, holder: ViewHolder) {
         /**
          * vote -> 1 means upvote , -1 means downvote
          * value -> 1 means did , -1 means undo
          */
-        when(vote){
-            1 ->{
-                if(value==1) // did an upvote DO remove any downvotes
+        when (vote) {
+            1 -> {
+                if (value == 1) // did an upvote DO remove any downvotes
                 {
                     holder.upvote.setBackgroundResource(R.drawable.didupvote)
                     holder.downvote.setBackgroundResource(R.drawable.downvote)
-                }
-                else // removed the upvote
+                } else // removed the upvote
                     holder.upvote.setBackgroundResource(R.drawable.upvote)
             }
-            -1 ->{
-                if(value==1) // did a downvote DO remove any upvotes
+            -1 -> {
+                if (value == 1) // did a downvote DO remove any upvotes
                 {
                     holder.downvote.setBackgroundResource(R.drawable.diddownvote)
                     holder.upvote.setBackgroundResource(R.drawable.upvote)
-                }
-                else // removed the downvote
+                } else // removed the downvote
                     holder.downvote.setBackgroundResource(R.drawable.downvote)
             }
         }
@@ -171,7 +170,7 @@ class ViewReportRecyclerAdapter(
 
     private fun setValues(problem: Problem, holder: ViewHolder) {
         holder.viewportsUpper.setBackgroundColor(Functions.getRandomMaterialColor())
-       // holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.greyishWhite))
+        // holder.viewportsUpper.setBackgroundColor(Functions.getRes().getColor(R.color.greyishWhite))
         holder.description.text = problem.description
         holder.address.text = problem.address
         holder.landmark.text = problem.landmark
@@ -184,7 +183,7 @@ class ViewReportRecyclerAdapter(
             holder.displayImage.visibility = View.GONE
 
         // See if the problem has Lat-Lng Coordinates
-        if(problem.latitude == 0.00 && problem.longitude == 0.00)
+        if (problem.latitude == 0.00 && problem.longitude == 0.00)
             holder.displayMap.visibility = View.GONE
 
     }
@@ -202,8 +201,8 @@ class ViewReportRecyclerAdapter(
         var displayMap: ImageView = itemView.findViewById(R.id.displayMap)
 
         // Added 25-01-2020
-        var upvote:ImageView = itemView.findViewById(R.id.upvote)
-        var downvote:ImageView = itemView.findViewById(R.id.downvote)
+        var upvote: ImageView = itemView.findViewById(R.id.upvote)
+        var downvote: ImageView = itemView.findViewById(R.id.downvote)
 
     }
 }

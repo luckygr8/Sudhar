@@ -115,7 +115,7 @@
         <item>#304ffe</item>
         <item>#e53935</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
     <!-- TODO -->
-    <string name="title_activity_maps">View on Map</string>
 </resources>

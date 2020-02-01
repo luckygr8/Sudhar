@@ -11,6 +11,7 @@ import com.sih2020.project.interfaces.Initializers
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.login.LoginFragment
+import com.sih2020.project.reportProblem.ReportProblemFragment
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.MultiFabs
 

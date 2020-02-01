@@ -2,7 +2,6 @@ package com.sih2020.project.maps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -11,7 +10,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.sih2020.project.R
-import com.sih2020.project.constants.Constants
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -27,16 +25,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     /**
-     * @since 24-01-2020
-     * Auto-generated class.
-     *
-     * @param latitude
-     * @param longitude
-     *
-     * latitude and longitude are passed into the Maps Activity via Intent.
-     *
-     * @see com.sih2020.project.viewReports.ViewReportsFragment
-     *
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
@@ -48,13 +36,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val location = LatLng(
-            intent.getDoubleExtra(Constants.PROBLEM_LATITUDE,0.00),
-            intent.getDoubleExtra(Constants.PROBLEM_LONGITUDE,0.00)
-        )
-        Log.d(Constants.LOG_TAG,"${location.latitude}  ${location.longitude}")
-        // TODO fix hardcode string / MAP doesnt work
-        mMap.addMarker(MarkerOptions().position(location).title("View Location"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }
