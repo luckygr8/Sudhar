@@ -1,158 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:padding="@dimen/p7">
 
-        <!-- this fragment uses multiple layer screens
-           This technique is used to cycle more than one
-           layouts on a single screen.
+        <!-- The layout can be split into 2 separate screens
+        if needed
         -->
 
-
-        <!-- for entering problem details 1 -->
+        <!-- city -->
         <LinearLayout
-            android:id="@+id/report_problem_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/p7"
-            android:visibility="visible">
+            android:layout_marginTop="@dimen/m2"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/colorAccent"
+            android:elevation="@dimen/cardElevation">
 
-            <!-- city -->
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/b2"
-                android:layout_marginTop="@dimen/b1" />
-
-            <!-- ward -->
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/b2"
-                android:layout_marginTop="@dimen/b1" />
-
-            <!-- type -->
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/b2"
-                android:layout_marginTop="@dimen/b1" />
-
-            <!-- click to attatch location -->
-            <me.omidh.liquidradiobutton.LiquidRadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/quicksand_light"
-                android:padding="@dimen/p3"
-                android:text="@string/attatch_my_location"
-                android:textSize="@dimen/md"
-                app:lrb_checkedColor="@color/blendOrangeBrown"
-                app:lrb_explodeCount="3"
-                app:lrb_inAnimDuration="500"
-                app:lrb_innerCircleRadius="10dp"
-                app:lrb_outAnimDuration="500"
-                app:lrb_outterPadding="5dp"
-                app:lrb_strokeRadius="12dp" />
-
-            <!-- click to add photo -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/nopic" />
-
-            <!-- proceed -->
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/blendOrangeBrown"
-                android:fontFamily="@font/quicksand_semibold"
-                android:padding="@dimen/p2"
-                android:text="@string/proceed"
-                android:textSize="@dimen/l" />
-
+                android:layout_margin="@dimen/m1" />
         </LinearLayout>
 
-        <!-- for entering problem details 2 -->
+        <!-- ward -->
         <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/report_problem_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/p7">
+            android:layout_marginTop="@dimen/m3"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/colorAccent"
+            android:elevation="@dimen/cardElevation">
 
-            <!-- exact address -->
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_exact_address"
-                android:padding="@dimen/p1"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/quicksand_semibold"
-                    android:inputType="textPersonName"
-                    android:textSize="@dimen/xl" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- landmark -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_landmark"
-                android:padding="@dimen/p1"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/quicksand_semibold"
-                    android:inputType="textPersonName"
-                    android:textSize="@dimen/xl" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- description -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_description"
-                android:padding="@dimen/p1"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/quicksand_semibold"
-                    android:inputType="textPersonName"
-                    android:textSize="@dimen/xl" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- post button -->
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/blendOrangeBrown"
-                android:fontFamily="@font/quicksand_semibold"
-                android:padding="@dimen/p2"
-                android:text="@string/post_the_problem"
-                android:textSize="@dimen/l" />
-
+                android:layout_height="@dimen/b2"
+                android:layout_margin="@dimen/m1" />
         </LinearLayout>
+
+        <!-- type -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m3"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/colorAccent"
+            android:elevation="@dimen/cardElevation">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/b2"
+                android:layout_margin="@dimen/m1" />
+        </LinearLayout>
+
+        <!-- click to attatch location -->
+        <me.omidh.liquidradiobutton.LiquidRadioButton
+            android:layout_marginTop="@dimen/m2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_light"
+            android:padding="@dimen/p3"
+            android:text="@string/attatch_my_location"
+            android:textSize="@dimen/md"
+            app:lrb_checkedColor="@color/blendOrangeBrown"
+            app:lrb_explodeCount="3"
+            app:lrb_inAnimDuration="500"
+            app:lrb_innerCircleRadius="10dp"
+            app:lrb_outAnimDuration="500"
+            app:lrb_outterPadding="5dp"
+            app:lrb_strokeRadius="12dp" />
+
+        <!-- click to add photo -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nopic"
+            tools:ignore="ContentDescription" />
+
+
+        <!-- exact address -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_exact_address"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- landmark -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_landmark"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- description -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_description"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- post button -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/blendOrangeBrown"
+            android:fontFamily="@font/quicksand_semibold"
+            android:padding="@dimen/p2"
+            android:text="@string/post_the_problem"
+            android:textSize="@dimen/l" />
 
     </LinearLayout>
-
 
 </ScrollView>
 

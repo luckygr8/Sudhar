@@ -29,8 +29,8 @@ class ReportProblemFragment : Fragment(), HttpRequests,
 
     override fun bindViews() {
 
-        report_problem_1 = root.findViewById(R.id.report_problem_1)
-        report_problem_2 = root.findViewById(R.id.report_problem_2)
+        //report_problem_1 = root.findViewById(R.id.report_problem_1)
+        //report_problem_2 = root.findViewById(R.id.report_problem_2)
 
 
     }
