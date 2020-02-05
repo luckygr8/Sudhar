@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.RelativeLayout
 import android.widget.Spinner
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +40,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     private lateinit var viewReports_spinner: Spinner
     private lateinit var gson: Gson
     private lateinit var fragment: HttpRequests
-    private lateinit var parent: RelativeLayout
+    private lateinit var parent: ConstraintLayout
 
 
     /**

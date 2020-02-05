@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,18 +19,18 @@
 
         <!-- city -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m2"
-            android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="@dimen/cardElevation">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m2"
+        android:background="@drawable/rounded_corners_transparent"
+        android:backgroundTint="@color/colorAccent"
+        android:elevation="@dimen/cardElevation">
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/b2"
-                android:layout_margin="@dimen/m1" />
-        </LinearLayout>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/b2"
+            android:layout_margin="@dimen/m1" />
+    </LinearLayout>
 
         <!-- ward -->
         <LinearLayout
@@ -151,5 +151,5 @@
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
 
