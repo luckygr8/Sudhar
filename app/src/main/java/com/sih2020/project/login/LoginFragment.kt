@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 import com.android.volley.VolleyError
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.romainpiel.shimmer.Shimmer
-import com.romainpiel.shimmer.ShimmerTextView
+/*import com.romainpiel.shimmer.Shimmer
+import com.romainpiel.shimmer.ShimmerTextView*/
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.interfaces.Initializers
 import com.sih2020.project.R

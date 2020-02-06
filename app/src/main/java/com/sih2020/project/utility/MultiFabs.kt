@@ -19,13 +19,13 @@ class MultiFabs(
 
     constructor(view: View, hintstr1: String, hintstr2: String, hintstr3: String) : this(
         view,
-        R.drawable.ic_launcher,
+        R.drawable.downvote,
         hintstr1,
-        R.drawable.ic_launcher,
+        R.drawable.downvote,
         hintstr2,
-        R.drawable.ic_launcher,
+        R.drawable.downvote,
         hintstr3,
-        R.drawable.ic_launcher
+        R.drawable.downvote
     ) {
         fab.setImageResource(resID)
         fab1.setImageResource(resID1)
