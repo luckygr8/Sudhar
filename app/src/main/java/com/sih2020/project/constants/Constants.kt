@@ -26,6 +26,9 @@ object Constants {
     val SP_CURRENT_USER_NAME="currentUsername"
     val SP_CURRENT_USER_EMAIL="currentUseremail"
 
+    val BOOT_INFO = "bootInfo"
+    val FIRST_BOOT = "firstBoot"
+
     // errors
     val ERROR_REQUIRED = Functions.getRes().getString(R.string.required)
     val ERROR_PASSWORD_DONT_MATCH = Functions.getRes().getString(R.string.password_dont_match)

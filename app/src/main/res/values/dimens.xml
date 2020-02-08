@@ -10,7 +10,7 @@
 
     <dimen name="cardRadii">15dp</dimen>
     <dimen name="cardElevation">4dp</dimen>
-
+    <dimen name="defaultRadius">10dp</dimen>
     <dimen name="defaultElevation">2dp</dimen>
     
     <!-- text sizes -->
@@ -24,6 +24,7 @@
     <dimen name="md">16sp</dimen>
     <dimen name="l">18sp</dimen>
     <dimen name="xl">20sp</dimen>
+    <dimen name="forIntro">75sp</dimen>
 
     <!-- padding sizes -->
     <dimen name="p1">10dp</dimen>

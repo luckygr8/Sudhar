@@ -3,6 +3,7 @@ package com.sih2020.project
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
@@ -15,8 +16,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.sih2020.project.intro.IntroActivity
 import com.sih2020.project.settings.SettingsActivity
 import com.sih2020.project.utility.Functions
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +28,6 @@ class MainActivity : AppCompatActivity() {
      * @author Lakshay Dutta
      * @since 5-1-2020
      * @see Functions
-     * @contact lakshaygr8.ld@gmail.com
      */
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         context = this
@@ -60,6 +63,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(Functions.isFirstBoot())
+        {
+            startActivity(Intent(this,IntroActivity::class.java))
+            finish()
+        }
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu): Boolean {

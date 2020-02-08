@@ -37,6 +37,9 @@ import com.sih2020.project.constants.Constants
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 
@@ -255,6 +258,41 @@ object Functions {
             email = pref.getString(Constants.SP_CURRENT_USER_EMAIL, "")
         )
     }
+
+    /**
+     * checks if this is the first time the app loads.
+     * @see firstBootDone
+     */
+    fun isFirstBoot():Boolean{
+        val prefs = MainActivity.getMainContext().getSharedPreferences(
+            Constants.BOOT_INFO,Context.MODE_PRIVATE
+        )
+
+        return prefs.getBoolean(Constants.FIRST_BOOT,true)
+    }
+
+    fun firstBootDone(){
+        CoroutineScope(Dispatchers.Default).launch {
+            val editor = MainActivity.getMainContext().getSharedPreferences(
+                Constants.BOOT_INFO,Context.MODE_PRIVATE
+            ).edit()
+
+            editor.putBoolean(Constants.FIRST_BOOT,false)
+
+            editor.apply()
+        }
+    }
+
+    /* TODO :: find alternative for this code
+    val languageToLoad = "hi"
+        val locale = Locale(languageToLoad)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        baseContext.resources.updateConfiguration(
+            config,
+            baseContext.resources.displayMetrics
+        )*/
 
     /*fun toggleLoggedIn(toggle:Boolean){
         val editor = MainActivity.getMainContext()
