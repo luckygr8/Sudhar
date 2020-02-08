@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundBlue"
         android:orientation="vertical">
 
         <!-- login screen -->
@@ -107,10 +108,18 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/p1"
+                android:layout_marginStart="@dimen/p1"
+
+                android:elevation="@dimen/defaultElevation"
+                android:background="@drawable/rounded_corners_transparent"
                 android:hint="@string/enter_your_email"
-                app:errorEnabled="true"
-                android:padding="@dimen/p1"
-                >
+                android:paddingStart="@dimen/p1"
+                android:paddingTop="@dimen/p1"
+                android:paddingEnd="@dimen/p1"
+                android:theme="@style/defaultMargins"
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
@@ -124,48 +133,106 @@
 
             <!-- send OTP -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/checkEmail"
-                android:layout_width="wrap_content"
-                app:icon="@drawable/check"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/p1"
+                android:layout_marginStart="@dimen/p1"
+
+                android:id="@+id/checkEmail"
+
+                android:paddingTop="@dimen/p3"
+                android:paddingBottom="@dimen/p3"
+
                 android:layout_gravity="center"
-                android:backgroundTint="@color/blendOrangeBrown"
+                android:backgroundTint="@color/accentBlue"
                 android:fontFamily="@font/quicksand_semibold"
-                android:padding="@dimen/p1"
+
                 android:text="@string/sendOTP"
-                android:textSize="@dimen/md" />
+                android:textSize="@dimen/md"
+                app:cornerRadius="@dimen/cardRadii"
+                 />
 
             <!-- enter OTP -->
-                <EditText
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners_transparent"
-                    android:padding="@dimen/p1"
-                    android:id="@+id/verifyOTP"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_regular"
-                    android:hint="@string/enter_OTP"
-                    android:inputType="number"
-                    android:textSize="@dimen/h1"
-                    android:importantForAutofill="no" />
+            <EditText
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/verifyOTP"
+
+                android:layout_marginEnd="@dimen/p1"
+                android:layout_marginStart="@dimen/p1"
+
+                android:elevation="@dimen/defaultElevation"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_corners_transparent"
+                android:fontFamily="@font/quicksand_regular"
+                android:hint="@string/enter_OTP"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:padding="@dimen/p1"
+                android:textSize="@dimen/h1" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/firstPinView"
+                style="@style/PinWidget.PinView"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/p1"
+                android:layout_marginStart="@dimen/p1"
+
+                android:padding="@dimen/p1"
+                android:layout_gravity="center"
+
+                app:itemHeight="@dimen/otpdimen"
+                app:itemWidth="@dimen/otpdimen"
+
+                android:cursorVisible="true"
+                android:inputType="number"
+                android:textColor="@color/primaryBlue"
+                android:textSize="@dimen/xl"
+                android:textStyle="bold"
+                app:cursorColor="@color/accentBlue"
+                app:cursorWidth="2dp"
+                app:hideLineWhenFilled="false"
+                app:itemCount="6"
+                app:itemRadius="@dimen/p5"
+                app:itemSpacing="5dp"
+
+                app:lineColor="@color/accentBlue"
+                app:lineWidth="3dp"
+                app:viewType="rectangle"
+                 />
 
             <!-- send OTP -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/verify"
-                android:layout_width="wrap_content"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/p1"
+                android:layout_marginStart="@dimen/p1"
+
+                app:icon="@drawable/check"
+
                 android:layout_gravity="center"
-                android:backgroundTint="@color/blendOrangeBrown"
+                android:backgroundTint="@color/accentBlue"
                 android:fontFamily="@font/quicksand_semibold"
                 android:padding="@dimen/p2"
                 android:text="@string/verify_via_OTP"
-                android:textSize="@dimen/l" />
+                android:textSize="@dimen/l"
+                app:cornerRadius="@dimen/cardRadii" />
 
             <LinearLayout
-                android:layout_width="match_parent"
                 android:id="@+id/signupToggelable"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <!-- name -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -237,12 +304,12 @@
                     android:textSize="@dimen/l" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/m1"
-                    android:gravity="bottom"
-                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/loginInstruction" />
+                    android:layout_marginTop="@dimen/m1"
+                    android:gravity="bottom"
+                    android:text="@string/loginInstruction"
+                    android:textAlignment="center" />
             </LinearLayout>
 
         </LinearLayout>

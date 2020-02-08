@@ -14,6 +14,10 @@
     <color name="grey">#5d5b6a</color>
     <color name="black1">#333</color>
 
+    <color name="accentBlue">#eda1c1</color>
+    <color name="primaryBlue">#0060ca</color>
+    <color name="backgroundBlue">#7babed</color>
+
     <!-- material light colors -->
     <color name="lightPink">#ffb6b9</color>
     <color name="peach">#fae3d9</color>

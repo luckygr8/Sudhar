@@ -6,9 +6,12 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="none">0dp</dimen>
+    <dimen name="otpdimen">48dp</dimen>
 
     <dimen name="cardRadii">15dp</dimen>
     <dimen name="cardElevation">4dp</dimen>
+
+    <dimen name="defaultElevation">2dp</dimen>
     
     <!-- text sizes -->
     <dimen name="h1">22sp</dimen>
@@ -26,6 +29,7 @@
     <dimen name="p1">10dp</dimen>
     <dimen name="p2">12dp</dimen>
     <dimen name="p3">15dp</dimen>
+    <dimen name="p4">17dp</dimen>
     <dimen name="p5">20dp</dimen>
     <dimen name="p7">30dp</dimen>
     <dimen name="p9">40dp</dimen>

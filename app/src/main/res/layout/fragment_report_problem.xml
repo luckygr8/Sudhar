@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundBlue"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,27 +19,35 @@
 
         <!-- city -->
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m2"
-        android:background="@drawable/rounded_corners_transparent"
-        android:backgroundTint="@color/colorAccent"
-        android:elevation="@dimen/cardElevation">
-
-        <Spinner
             android:layout_width="match_parent"
-            android:layout_height="@dimen/b2"
-            android:layout_margin="@dimen/m1" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/p1"
+            android:layout_marginTop="@dimen/m2"
+
+            android:layout_marginEnd="@dimen/p1"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/accentBlue"
+            android:elevation="@dimen/defaultElevation">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/b2"
+                android:layout_margin="@dimen/m1" />
+        </LinearLayout>
 
         <!-- ward -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/p1"
             android:layout_marginTop="@dimen/m3"
+            android:layout_marginEnd="@dimen/p1"
+
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="@dimen/cardElevation">
+            android:backgroundTint="@color/accentBlue"
+            android:elevation="@dimen/defaultElevation">
 
             <Spinner
                 android:layout_width="match_parent"
@@ -51,10 +59,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/p1"
             android:layout_marginTop="@dimen/m3"
+            android:layout_marginEnd="@dimen/p1"
+
+
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="@dimen/cardElevation">
+            android:backgroundTint="@color/accentBlue"
+            android:elevation="@dimen/defaultElevation">
 
             <Spinner
                 android:layout_width="match_parent"
@@ -64,14 +77,18 @@
 
         <!-- click to attatch location -->
         <me.omidh.liquidradiobutton.LiquidRadioButton
-            android:layout_marginTop="@dimen/m2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/p1"
+            android:layout_marginEnd="@dimen/p1"
+
+            android:layout_marginTop="@dimen/m2"
             android:fontFamily="@font/quicksand_light"
             android:padding="@dimen/p3"
             android:text="@string/attatch_my_location"
             android:textSize="@dimen/md"
-            app:lrb_checkedColor="@color/blendOrangeBrown"
+            app:lrb_checkedColor="@color/accentBlue"
             app:lrb_explodeCount="3"
             app:lrb_inAnimDuration="500"
             app:lrb_innerCircleRadius="10dp"
@@ -140,14 +157,20 @@
 
         <!-- post button -->
         <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center"
-            android:backgroundTint="@color/blendOrangeBrown"
+            android:layout_marginStart="@dimen/p1"
+
+            android:layout_marginEnd="@dimen/p1"
+
+            android:backgroundTint="@color/accentBlue"
             android:fontFamily="@font/quicksand_semibold"
             android:padding="@dimen/p2"
             android:text="@string/post_the_problem"
-            android:textSize="@dimen/l" />
+            android:textSize="@dimen/l"
+            app:cornerRadius="@dimen/cardRadii" />
 
     </LinearLayout>
 
