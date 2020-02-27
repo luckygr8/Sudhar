@@ -3,7 +3,6 @@ package com.sih2020.project
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
@@ -19,7 +18,6 @@ import com.google.android.material.navigation.NavigationView
 import com.sih2020.project.intro.IntroActivity
 import com.sih2020.project.settings.SettingsActivity
 import com.sih2020.project.utility.Functions
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -67,9 +65,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(Functions.isFirstBoot())
-        {
-            startActivity(Intent(this,IntroActivity::class.java))
+        if (Functions.isFirstBoot()) {
+            startActivity(Intent(this, IntroActivity::class.java))
             finish()
         }
     }
@@ -107,6 +104,16 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
+
+    /*private fun subscribe() {
+        FirebaseMessaging.getInstance().subscribeToTopic("main")
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(baseContext, "notification received", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+    }*/
 
 }
 

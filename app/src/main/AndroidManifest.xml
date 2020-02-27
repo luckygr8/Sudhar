@@ -31,7 +31,9 @@
         android:roundIcon="@mipmap/mainlogo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme_Blue">
-        <activity android:name=".intro.IntroActivity" android:theme="@style/AppTheme_Blue"></activity>
+        <activity
+            android:name=".intro.IntroActivity"
+            android:theme="@style/AppTheme_Blue"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -59,6 +61,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

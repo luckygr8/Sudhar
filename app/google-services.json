@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "932100846814",
+    "firebase_url": "https://sudhar-1e390.firebaseio.com",
+    "project_id": "sudhar-1e390",
+    "storage_bucket": "sudhar-1e390.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932100846814:android:c1ea66939e81ee3dfbbe4f",
+        "android_client_info": {
+          "package_name": "com.sih2020.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932100846814-tdt9ggmcvhumic49oaoqlm4cf1lb843g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVkiw7vWqK2mU_0eHzIigK4F7U6X1VQws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932100846814-tdt9ggmcvhumic49oaoqlm4cf1lb843g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

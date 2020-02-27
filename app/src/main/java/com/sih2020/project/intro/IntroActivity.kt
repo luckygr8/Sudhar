@@ -45,6 +45,7 @@ class IntroActivity : AppCompatActivity(), Initializers {
         finish = findViewById(R.id.finish)
         finish.setOnClickListener {
             // Do the language code
+            Functions.showToast("hello world",false)
             CoroutineScope(Dispatchers.Main).launch {
                 startActivity(Intent(baseContext, MainActivity::class.java))
                 Functions.firstBootDone()
@@ -64,10 +65,7 @@ class IntroActivity : AppCompatActivity(), Initializers {
     private fun animate() {
 
         CoroutineScope(Dispatchers.Main).launch {
-            appTitle.animate().alpha(0.9F).setDuration(1500L).translationY(100f).scaleY(1.1f).scaleX(1.1f).start()
-        }
-
-        CoroutineScope(Dispatchers.Main).launch {
+            appTitle.animate().alpha(0.9F).setDuration(1000L).translationY(100f).scaleY(1.1f).scaleX(1.1f).start()
             languageLayout.animate().alpha(0.85F).setDuration(1500L).translationY(200f).scaleY(1.1f).scaleX(1.1f).start()
         }
 

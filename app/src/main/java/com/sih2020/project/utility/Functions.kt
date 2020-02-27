@@ -77,7 +77,6 @@ object Functions {
             R.layout.toast,
             (MainActivity.getMainContext() as Activity).findViewById(R.id.toastParent)
         )
-
         textView = layout.findViewById(R.id.toastMessage)
         toast.view = layout
         toast.duration = Toast.LENGTH_LONG
@@ -309,7 +308,7 @@ object Functions {
      *
      *
      */
-    fun showNotification(title: Int, content: Int) {
+    fun showNotification(title: String? , content: String?) {
 
         /**
          * @param title is a small heading that shows in the notification
@@ -330,8 +329,10 @@ object Functions {
         val builder =
             NotificationCompat.Builder(MainActivity.getMainContext(), Constants.CHANNEL_ID)
                 .setSmallIcon(R.mipmap.mainlogo)
-                .setContentTitle(res.getString(title))
-                .setContentText(res.getString(content))
+                //.setContentTitle(res.getString(title))
+                //.setContentText(res.getString(content))
+                .setContentTitle(title)
+                .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         val manager: NotificationManagerCompat =
@@ -375,7 +376,7 @@ object Functions {
             vibrate()
     }
 
-    fun vibrate() =
+    private fun vibrate() =
         vibrator.vibrate(500)
 
 
