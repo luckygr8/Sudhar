@@ -108,8 +108,6 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners_transparent"
-            app:boxBackgroundMode="none"
             android:hint="@string/enter_exact_address"
             android:padding="@dimen/p1"
             app:errorEnabled="true">
@@ -117,9 +115,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_transparent"
                 android:fontFamily="@font/quicksand_semibold"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/md" />
+                android:textSize="@dimen/xl" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,6 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_landmark"
+
             android:padding="@dimen/p1"
             app:errorEnabled="true">
 
