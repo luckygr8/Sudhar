@@ -1,5 +1,5 @@
 # Sudhar
-Project @'The Turing Machine'
+Project @luckygr8
 
 author Lakshay Dutta
 
