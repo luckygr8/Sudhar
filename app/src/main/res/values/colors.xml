@@ -18,6 +18,13 @@
     <color name="primaryBlue">#0060ca</color>
     <color name="backgroundBlue">#7babed</color>
 
+    <color name="accentPurple">#d89cf6</color>
+    <color name="primaryPurple">#3e206d</color>
+    <color name="backgroundPurple">#916dd5</color>
+
+    <color name="primaryOrange">#ca431d</color>
+    <color name="backgroundOrange">#042f4b</color>
+
     <!-- material light colors -->
     <color name="lightPink">#ffb6b9</color>
     <color name="peach">#fae3d9</color>

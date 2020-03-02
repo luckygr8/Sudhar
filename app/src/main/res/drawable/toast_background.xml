@@ -6,9 +6,9 @@
 
     <padding android:top="@dimen/p1" android:right="@dimen/p1" android:left="@dimen/p1" android:bottom="@dimen/p1"/>
 
-    <solid android:color="@color/accentBlue"/>
+    <solid android:color="@color/accentPurple"/>
 
-    <stroke android:color="@color/black1" android:width="8dp"/>
+<!--    <stroke android:color="@color/black1" android:width="8dp"/>-->
 
     <size android:height="@dimen/b3"/>
 

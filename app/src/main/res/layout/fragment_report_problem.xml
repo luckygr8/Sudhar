@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundBlue"
+    android:background="@color/backgroundOrange"
     android:orientation="vertical">
 
     <LinearLayout
@@ -27,7 +27,7 @@
 
             android:layout_marginEnd="@dimen/p1"
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/accentBlue"
+            android:backgroundTint="@color/primaryOrange"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -46,7 +46,7 @@
             android:layout_marginEnd="@dimen/p1"
 
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/accentBlue"
+            android:backgroundTint="@color/primaryOrange"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -66,7 +66,7 @@
 
 
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/accentBlue"
+            android:backgroundTint="@color/primaryOrange"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -75,28 +75,28 @@
                 android:layout_margin="@dimen/m1" />
         </LinearLayout>
 
-        <!-- click to attatch location -->
-        <me.omidh.liquidradiobutton.LiquidRadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+<!--        &lt;!&ndash; click to attatch location &ndash;&gt;-->
+<!--        <me.omidh.liquidradiobutton.LiquidRadioButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
 
-            android:layout_marginStart="@dimen/p1"
-            android:layout_marginEnd="@dimen/p1"
+<!--            android:layout_marginStart="@dimen/p1"-->
+<!--            android:layout_marginEnd="@dimen/p1"-->
 
-            android:layout_marginTop="@dimen/m2"
-            android:fontFamily="@font/quicksand_light"
-            android:padding="@dimen/p3"
-            android:text="@string/attatch_my_location"
-            android:textSize="@dimen/md"
-            app:lrb_checkedColor="@color/accentBlue"
-            app:lrb_explodeCount="3"
-            app:lrb_inAnimDuration="500"
-            app:lrb_innerCircleRadius="10dp"
-            app:lrb_outAnimDuration="500"
-            app:lrb_outterPadding="5dp"
-            app:lrb_strokeRadius="12dp" />
+<!--            android:layout_marginTop="@dimen/m2"-->
+<!--            android:fontFamily="@font/quicksand_light"-->
+<!--            android:padding="@dimen/p3"-->
+<!--            android:text="@string/attatch_my_location"-->
+<!--            android:textSize="@dimen/md"-->
+<!--            app:lrb_checkedColor="@color/accentPurple"-->
+<!--            app:lrb_explodeCount="3"-->
+<!--            app:lrb_inAnimDuration="500"-->
+<!--            app:lrb_innerCircleRadius="10dp"-->
+<!--            app:lrb_outAnimDuration="500"-->
+<!--            app:lrb_outterPadding="5dp"-->
+<!--            app:lrb_strokeRadius="12dp" />-->
 
-        <!-- click to add photo -->
+<!--        &lt;!&ndash; click to add photo &ndash;&gt;-->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
 
             android:layout_marginEnd="@dimen/p1"
 
-            android:backgroundTint="@color/accentBlue"
+            android:backgroundTint="@color/primaryOrange"
             android:fontFamily="@font/quicksand_semibold"
             android:padding="@dimen/p2"
             android:text="@string/post_the_problem"
