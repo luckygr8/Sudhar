@@ -12,7 +12,8 @@
     <color name="white2">#EEE</color>
     <color name="greyishWhite">#999999</color>
     <color name="grey">#5d5b6a</color>
-    <color name="black1">#333</color>
+    <color name="black3">#333</color>
+    <color name="black1">#111</color>
 
     <color name="accentBlue">#eda1c1</color>
     <color name="primaryBlue">#0060ca</color>

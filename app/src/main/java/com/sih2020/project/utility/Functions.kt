@@ -10,6 +10,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.location.LocationManager
@@ -41,6 +42,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.util.*
 
 
 @SuppressLint("StaticFieldLeak")
@@ -282,16 +284,15 @@ object Functions {
         }
     }
 
-    /* TODO :: find alternative for this code
-    val languageToLoad = "hi"
-        val locale = Locale(languageToLoad)
+    fun changeLanguage(code:String){
+        val locale = Locale(code)
         Locale.setDefault(locale)
         val config = Configuration()
         config.locale = locale
-        baseContext.resources.updateConfiguration(
-            config,
-            baseContext.resources.displayMetrics
-        )*/
+        MainActivity.getMainContext().resources.updateConfiguration(
+            config, MainActivity.getMainContext().resources.displayMetrics
+        )
+    }
 
     /*fun toggleLoggedIn(toggle:Boolean){
         val editor = MainActivity.getMainContext()

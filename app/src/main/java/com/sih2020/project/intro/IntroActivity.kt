@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.sih2020.project.MainActivity
 import com.sih2020.project.R
+import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.interfaces.Initializers
 import com.sih2020.project.utility.Functions
 import kotlinx.coroutines.CoroutineScope
@@ -22,7 +23,15 @@ class IntroActivity : AppCompatActivity(), Initializers {
     private lateinit var languageLayout: LinearLayout
     private lateinit var languageSpinner:Spinner
 
-    // TODO : document the whole thing
+    /**
+     * @author Lakshay Dutta
+     * who else is the author anyway lol
+     *
+     * this is the intro activity
+     * @since 9-3-20 if you care about that XD
+     *
+     * added some big UI improvements today which I am proud of
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
@@ -45,7 +54,9 @@ class IntroActivity : AppCompatActivity(), Initializers {
         finish = findViewById(R.id.finish)
         finish.setOnClickListener {
             // Do the language code
-            Functions.showToast("hello world",false)
+            val locale = languageSpinner.selectedItem as String
+            Functions.changeLanguage(decodeLocale(locale))
+
             CoroutineScope(Dispatchers.Main).launch {
                 startActivity(Intent(baseContext, MainActivity::class.java))
                 Functions.firstBootDone()
@@ -53,21 +64,26 @@ class IntroActivity : AppCompatActivity(), Initializers {
             }
         }
         languageSpinner = findViewById(R.id.languageSpinner)
+        val adapter = ArrayAdapter<String>(
+            MainActivity.getMainContext(),
+            R.layout.spinner_item,R.id.citySpinnerText, resources.getStringArray(R.array.languages)
+        )
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        languageSpinner.adapter = adapter
 
     }
-
-    // TODO :: make this and use on seperate CR
-    /*private fun setLanguageSpinner(){
-        val languages = resources.getStringArray(R.array.languages)
-        Adapter = ArrayAdapter<String>()
-    }*/
 
     private fun animate() {
 
         CoroutineScope(Dispatchers.Main).launch {
-            appTitle.animate().alpha(0.9F).setDuration(1000L).translationY(100f).scaleY(1.1f).scaleX(1.1f).start()
-            languageLayout.animate().alpha(0.85F).setDuration(1500L).translationY(200f).scaleY(1.1f).scaleX(1.1f).start()
+            appTitle.animate().alpha(1F).setDuration(1500L).translationY(450f).scaleY(1.1f).scaleX(1.1f).start()
+            languageLayout.animate().alpha(0.85F).setDuration(1500L).translationY(600f).scaleY(1.1f).scaleX(1.1f).start()
         }
+    }
 
+    private fun decodeLocale(locale:String):String = when(locale){
+        "English" -> "en"
+        "हिंदी"-> "hi"
+        else -> "en"
     }
 }

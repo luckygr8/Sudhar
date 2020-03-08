@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/quicksand_regular</item>
         <item name="android:textSize">@dimen/md</item>
-        <item name="android:textColor">@color/black1</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
 
     <style name="MyTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -28,21 +28,21 @@
         <item name="colorPrimary">@color/primaryBlue</item>
         <item name="colorPrimaryDark">@color/primaryBlue</item>
         <item name="colorAccent">@color/accentBlue</item>
-        <item name="android:textColor">@color/black1</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
 
     <style name="AppTheme_Purple" parent="MyTheme">
         <item name="colorPrimary">@color/primaryPurple</item>
         <item name="colorPrimaryDark">@color/primaryPurple</item>
         <item name="colorAccent">@color/accentPurple</item>
-        <item name="android:textColor">@color/black1</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
 
     <style name="AppTheme_Orange" parent="MyTheme">
         <item name="colorPrimary">@color/primaryOrange</item>
         <item name="colorPrimaryDark">@color/primaryOrange</item>
         <item name="colorAccent">@color/accentPurple</item>
-        <item name="android:textColor">@color/black1</item>
+        <item name="android:textColor">@color/black3</item>
     </style>
 
     <style name="ThemeWithWhiteText" parent="AppTheme">
