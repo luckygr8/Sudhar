@@ -2,14 +2,14 @@ package com.sih2020.project.constants
 
 object RestURLs {
 
-    val BASE_URL = "http://139.59.84.88:8000/main"
+    val BASE_URL = "http://localhost:3000/main"
 
     /**
      * @author Lakshay Dutta 5-1-20
      * URLs for GET type requests
      */
 
-    val GET_CITIES = "$BASE_URL/city/"
+    val GET_CITIES = "$BASE_URL/city"
     val GET_PROBLEMS = "$BASE_URL/problem/" //  the /<cityname>/ is appended in the code.
 
     /**

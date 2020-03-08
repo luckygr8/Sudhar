@@ -92,8 +92,8 @@ class ViewReportsFragment : Fragment(), HttpRequests,
         viewReports_recycler.layoutManager = LinearLayoutManager(root.context)
 
         viewReports_spinner = root.findViewById(R.id.viewReports_spinner)
-        //Functions.getJsonArray(RestURLs.GET_CITIES, fragment, tokenSpinner)
-        Functions.getJsonArray(RestURLs.GET_CITIES_T, fragment, tokenSpinner)
+
+        Functions.getJsonArray(RestURLs.GET_CITIES, fragment, tokenSpinner)
 
         gson = Gson()
     }
