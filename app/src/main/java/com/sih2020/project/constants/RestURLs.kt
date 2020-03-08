@@ -2,7 +2,7 @@ package com.sih2020.project.constants
 
 object RestURLs {
 
-    val BASE_URL = "http://localhost:3000/main"
+    val BASE_URL = "http://192.168.43.26:3000/main"
 
     /**
      * @author Lakshay Dutta 5-1-20
@@ -10,7 +10,7 @@ object RestURLs {
      */
 
     val GET_CITIES = "$BASE_URL/city"
-    val GET_PROBLEMS = "$BASE_URL/problem/" //  the /<cityname>/ is appended in the code.
+    val GET_PROBLEMS = "$BASE_URL/problem" //  the /<cityname>/ is appended in the code.
 
     /**
      *

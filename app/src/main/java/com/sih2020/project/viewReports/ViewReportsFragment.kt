@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.VolleyError
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.interfaces.Initializers
@@ -60,8 +61,8 @@ class ViewReportsFragment : Fragment(), HttpRequests,
         when (token) {
 
             tokenSpinner -> {
-                val type = object : TypeToken<List<City>>() {}.type
-                val cities = gson.fromJson<ArrayList<City>>(jsonArray.toString(), type)
+                val type = object : TypeToken<List<String>>() {}.type
+                val cities = gson.fromJson<ArrayList<String>>(jsonArray.toString(), type)
                 attachSpinner(cities)
             }
 
@@ -113,18 +114,15 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     /**
      * attach city list to spinner
      */
-    private fun attachSpinner(cities: ArrayList<City>) {
-        val cityNames: ArrayList<String> = arrayListOf("select a city")
+    private fun attachSpinner(cities: ArrayList<String>) {
 
-        for (city in cities) {
-            cityNames.add(city.name)
-        }
+        cities.add(0,"Select a city")
 
         val adapter = ArrayAdapter<String>(
             MainActivity.getMainContext(),
-            android.R.layout.simple_spinner_item, cityNames
+            R.layout.spinner_item,R.id.citySpinnerText, cities
         )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
         viewReports_spinner.adapter = adapter
 
@@ -142,9 +140,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
             ) {
                 if (position <= 0) return
                 val city = parent?.getItemAtPosition(position) as String
-                val url = "${RestURLs.GET_PROBLEMS_T}$city/"
-                //val url = "${RestURLs.GET_PROBLEMS}${city}/"
-                Functions.getJsonArray(url, fragment, tokenrecycler)
+                Functions.getJsonArray("${RestURLs.GET_CITIES}/$city", fragment, tokenrecycler)
             }
 
         }
