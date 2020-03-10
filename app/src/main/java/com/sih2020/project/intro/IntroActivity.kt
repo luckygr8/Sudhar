@@ -9,16 +9,14 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.sih2020.project.BaseActivity
 import com.sih2020.project.R
+import com.sih2020.project.custom.Dots
 import com.sih2020.project.viewReports.ViewReportsFragment
 
 class IntroActivity : BaseActivity() {
 
     //
     private lateinit var introViewpager: ViewPager
-    private lateinit var dots: LinearLayout
-
-    private lateinit var dot1:ImageView
-    private lateinit var dot2:ImageView
+    private lateinit var dots:Dots
     //
 
     override fun bindViews() {
@@ -26,13 +24,9 @@ class IntroActivity : BaseActivity() {
         val adapter = ScreenSlidePagerAdapter(supportFragmentManager)
         introViewpager.adapter = adapter
 
-        dots = findViewById(R.id.dots)
-
-        dot1 = dots.findViewById(R.id.dot1)
-        dot2 = dots.findViewById(R.id.dot2)
+        dots = Dots(findViewById(R.id.dots))
 
         introViewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -41,21 +35,10 @@ class IntroActivity : BaseActivity() {
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-
             }
 
             override fun onPageSelected(position: Int) {
-                when(position){
-                    0 -> {
-                        dot2.setBackgroundResource(R.drawable.dot_black)
-                        dot1.setBackgroundResource(R.drawable.dot_white)
-                    }
-
-                    1 -> {
-                        dot1.setBackgroundResource(R.drawable.dot_black)
-                        dot2.setBackgroundResource(R.drawable.dot_white)
-                    }
-                }
+                dots.setActiveDot(position+1)
             }
         })
 
