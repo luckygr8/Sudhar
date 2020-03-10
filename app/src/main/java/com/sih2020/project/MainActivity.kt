@@ -15,7 +15,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.sih2020.project.intro.IntroActivity
+import com.sih2020.project.spash.SplashActivity
 import com.sih2020.project.settings.SettingsActivity
 import com.sih2020.project.utility.Functions
 
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (Functions.isFirstBoot()) {
-            startActivity(Intent(this, IntroActivity::class.java))
+            startActivity(Intent(this, SplashActivity::class.java))
             finish()
         }
     }

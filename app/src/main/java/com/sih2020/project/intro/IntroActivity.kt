@@ -1,89 +1,91 @@
 package com.sih2020.project.intro
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
-import com.sih2020.project.MainActivity
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.sih2020.project.BaseActivity
 import com.sih2020.project.R
-import com.sih2020.project.constants.RestURLs
-import com.sih2020.project.interfaces.Initializers
-import com.sih2020.project.utility.Functions
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.sih2020.project.viewReports.ViewReportsFragment
+
+class IntroActivity : BaseActivity() {
+
+    //
+    private lateinit var introViewpager: ViewPager
+    private lateinit var dots: LinearLayout
+
+    private lateinit var dot1:ImageView
+    private lateinit var dot2:ImageView
+    //
+
+    override fun bindViews() {
+        introViewpager = findViewById(R.id.introViewpager)
+        val adapter = ScreenSlidePagerAdapter(supportFragmentManager)
+        introViewpager.adapter = adapter
+
+        dots = findViewById(R.id.dots)
+
+        dot1 = dots.findViewById(R.id.dot1)
+        dot2 = dots.findViewById(R.id.dot2)
+
+        introViewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                when(position){
+                    0 -> {
+                        dot2.setBackgroundResource(R.drawable.dot_black)
+                        dot1.setBackgroundResource(R.drawable.dot_white)
+                    }
+
+                    1 -> {
+                        dot1.setBackgroundResource(R.drawable.dot_black)
+                        dot2.setBackgroundResource(R.drawable.dot_white)
+                    }
+                }
+            }
+        })
 
 
-class IntroActivity : AppCompatActivity(), Initializers {
+    }
 
-    private lateinit var finish: MaterialButton
-    private lateinit var appTitle: TextView
-    private lateinit var languageLayout: LinearLayout
-    private lateinit var languageSpinner:Spinner
-
-    /**
-     * @author Lakshay Dutta
-     * who else is the author anyway lol
-     *
-     * this is the intro activity
-     * @since 9-3-20 if you care about that XD
-     *
-     * added some big UI improvements today which I am proud of
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-
         bindViews()
 
-
+        //Functions.firstBootDone()
     }
 
-    override fun bindViews() {
+    private inner class ScreenSlidePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm) {
+        override fun getCount(): Int = 2
 
-        appTitle = findViewById(R.id.appTitle)
-        languageLayout = findViewById(R.id.languageLayout)
+        override fun getItem(position: Int): Fragment = when (position) {
+            0 ->
+               IntroRules()
 
-        animate()
 
-        finish = findViewById(R.id.finish)
-        finish.setOnClickListener {
-            // Do the language code
-            val locale = languageSpinner.selectedItem as String
-            Functions.changeLanguage(decodeLocale(locale))
+            1 ->
+                IntroRules()
 
-            CoroutineScope(Dispatchers.Main).launch {
-                startActivity(Intent(baseContext, MainActivity::class.java))
-                Functions.firstBootDone()
-                finish()
-            }
-        }
-        languageSpinner = findViewById(R.id.languageSpinner)
-        val adapter = ArrayAdapter<String>(
-            MainActivity.getMainContext(),
-            R.layout.spinner_item,R.id.citySpinnerText, resources.getStringArray(R.array.languages)
-        )
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
-        languageSpinner.adapter = adapter
 
-    }
-
-    private fun animate() {
-
-        CoroutineScope(Dispatchers.Main).launch {
-            appTitle.animate().alpha(1F).setDuration(1500L).translationY(450f).scaleY(1.1f).scaleX(1.1f).start()
-            languageLayout.animate().alpha(0.85F).setDuration(1500L).translationY(600f).scaleY(1.1f).scaleX(1.1f).start()
+            else -> ViewReportsFragment()
         }
     }
 
-    private fun decodeLocale(locale:String):String = when(locale){
-        "English" -> "en"
-        "हिंदी"-> "hi"
-        else -> "en"
-    }
 }
