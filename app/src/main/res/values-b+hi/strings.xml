@@ -55,6 +55,11 @@
     <string name="upvote">वोट दें</string>
     <string name="downvote">असहमत</string>
 
+    <string name="your_data">आइए कुछ विवरणों के साथ शुरू करें</string>
+    <string name="confirm">पुष्टि करें</string>
+    <string name="what_is_sudhar">सुधर क्या है</string>
+    <string name="select_your_state">अपना राज्य चुनें</string>
+
     <!-- snack bar prompts -->
     <string name="error">एक गलती हुई है। कृपया पुन: प्रयास करें</string>
 

@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.sih2020.project.BaseActivity
 import com.sih2020.project.R
 import com.sih2020.project.custom.Dots
+import com.sih2020.project.utility.Functions
 import com.sih2020.project.viewReports.ViewReportsFragment
 
 class IntroActivity : BaseActivity() {
@@ -51,7 +52,7 @@ class IntroActivity : BaseActivity() {
 
         bindViews()
 
-        //Functions.firstBootDone()
+        Functions.firstBootDone()
     }
 
     private inner class ScreenSlidePagerAdapter(fm: FragmentManager) :
@@ -64,7 +65,7 @@ class IntroActivity : BaseActivity() {
 
 
             1 ->
-                IntroRules()
+                IntroData()
 
 
             else -> ViewReportsFragment()

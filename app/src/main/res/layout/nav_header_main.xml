@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:background="@color/primaryOrange"
+    android:background="@drawable/nav_drawer_shape"
+    android:backgroundTint="@color/primaryOrange"
     android:orientation="vertical"
     android:padding="@dimen/p3"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">

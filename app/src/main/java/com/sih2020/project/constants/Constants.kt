@@ -9,6 +9,38 @@ object Constants {
     const val DURATION_LONG =  3000 // 3 seconds
     const val DURATION_OTP = 600000L // 600000L is 10 minutes for the OTP :Long
 
+    // Indian States - SORTED.
+    val INDIAN_STATES = arrayOf(
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chattisgarh",
+        "Delhi",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttrakhand",
+        "West Bengal")
+    //
+
     const val LOC_TIME:Long = 30000L // 30 seconds
     const val LOC_DIST:Float = 0.05F
 
