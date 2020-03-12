@@ -71,5 +71,8 @@
     <string name="denied">अस्वीकृत</string>
     <string name="unknown">अज्ञात</string>
 
+    <string name="fill_this_value">इस मान को भरें</string>
+    <string name="fill_correct_value">सही मूल्य भरें</string>
+
     <!---->
 </resources>

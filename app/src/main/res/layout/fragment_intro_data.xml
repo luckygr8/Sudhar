@@ -55,7 +55,9 @@
                 android:background="@drawable/rounded_corners_transparent"
                 android:fontFamily="@font/quicksand_semibold"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/xl" />
+                android:textSize="@dimen/xl"
+                android:id="@+id/introData_nickname"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,8 +76,9 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
-
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/introData_confirm"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -107,7 +110,9 @@
                 android:background="@drawable/rounded_corners_transparent"
                 android:fontFamily="@font/quicksand_semibold"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/xl" />
+                android:textSize="@dimen/xl"
+                android:id="@+id/introData_email"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 

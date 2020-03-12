@@ -52,7 +52,7 @@ class IntroActivity : BaseActivity() {
 
         bindViews()
 
-        Functions.firstBootDone()
+        //Functions.firstBootDone()
     }
 
     private inner class ScreenSlidePagerAdapter(fm: FragmentManager) :

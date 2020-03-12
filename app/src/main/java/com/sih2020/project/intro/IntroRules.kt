@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sih2020.project.BaseActivity
 
 import com.sih2020.project.R
 import com.sih2020.project.interfaces.Initializers
@@ -23,7 +22,7 @@ class IntroRules : Fragment() , Initializers {
         savedInstanceState: Bundle?
     ): View? {
 
-        root = inflater.inflate(R.layout.fragment_intro_rules, container, false)
+        root = inflater.inflate(R.layout.fragment_intro_how_to_use, container, false)
 
         return root
     }
