@@ -1,7 +1,7 @@
 package com.sih2020.project.utility
 
 import com.google.android.material.textfield.TextInputEditText
-import com.sih2020.project.MainActivity
+import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
 
 object Validate {

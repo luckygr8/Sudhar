@@ -1,4 +1,4 @@
-package com.sih2020.project
+package com.sih2020.project.base
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,6 +15,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.sih2020.project.R
 import com.sih2020.project.spash.SplashActivity
 import com.sih2020.project.settings.SettingsActivity
 import com.sih2020.project.utility.Functions
@@ -50,7 +51,9 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_view_reports,
-                R.id.nav_home, R.id.nav_report_problem, R.id.nav_send
+                R.id.nav_home,
+                R.id.nav_report_problem,
+                R.id.nav_send
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -88,7 +91,8 @@ class MainActivity : AppCompatActivity() {
 
         @SuppressLint("StaticFieldLeak")
         @JvmStatic
-        fun getMainContext(): Context = context
+        fun getMainContext(): Context =
+            context
 
     }
 

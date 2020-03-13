@@ -1,16 +1,13 @@
 package com.sih2020.project.intro
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.sih2020.project.BaseActivity
+import com.sih2020.project.base.BaseActivity
 import com.sih2020.project.R
 import com.sih2020.project.custom.Dots
-import com.sih2020.project.utility.Functions
 import com.sih2020.project.viewReports.ViewReportsFragment
 
 class IntroActivity : BaseActivity() {

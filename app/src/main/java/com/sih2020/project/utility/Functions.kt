@@ -32,10 +32,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.material.textfield.TextInputEditText
-import com.sih2020.project.MainActivity
 import com.sih2020.project.R
+import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
+import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
@@ -199,9 +199,10 @@ object Functions {
 
                 jsonObject.run {
 
+
                     put(Constants.USER_NAME, user.username)
-                    put(Constants.USER_EMAIL, user.email)
-                    put(Constants.USER_PASSWORD, user.password)
+                    put(Constants.USER_EMAIL, user.useremail)
+                    put(Constants.USER_STATE, user.userstate)
                 }
 
                 jsonObject
@@ -248,7 +249,7 @@ object Functions {
         val editor = MainActivity.getMainContext()
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE).edit()
         editor.putString(Constants.SP_CURRENT_USER_NAME, user.username)
-        editor.putString(Constants.SP_CURRENT_USER_EMAIL, user.email)
+        editor.putString(Constants.SP_CURRENT_USER_EMAIL, user.useremail)
         editor.apply()
     }
 
@@ -257,7 +258,7 @@ object Functions {
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE)
         return User(
             username = pref.getString(Constants.SP_CURRENT_USER_NAME, ""),
-            email = pref.getString(Constants.SP_CURRENT_USER_EMAIL, "")
+            useremail = pref.getString(Constants.SP_CURRENT_USER_EMAIL, "")
         )
     }
 
@@ -265,34 +266,43 @@ object Functions {
      * checks if this is the first time the app loads.
      * @see firstBootDone
      */
-    fun isFirstBoot():Boolean{
+    fun isFirstBoot(): Boolean {
         val prefs = MainActivity.getMainContext().getSharedPreferences(
-            Constants.BOOT_INFO,Context.MODE_PRIVATE
+            Constants.BOOT_INFO, Context.MODE_PRIVATE
         )
 
-        return prefs.getBoolean(Constants.FIRST_BOOT,true)
+        return prefs.getBoolean(Constants.FIRST_BOOT, true)
     }
 
-    fun firstBootDone(){
+    fun firstBootDone() {
         CoroutineScope(Dispatchers.Default).launch {
             val editor = MainActivity.getMainContext().getSharedPreferences(
-                Constants.BOOT_INFO,Context.MODE_PRIVATE
+                Constants.BOOT_INFO, Context.MODE_PRIVATE
             ).edit()
 
-            editor.putBoolean(Constants.FIRST_BOOT,false)
+            editor.putBoolean(Constants.FIRST_BOOT, false)
 
             editor.apply()
         }
     }
 
-    fun changeLanguage(code:String){
+    fun changeLanguage(code: String , context: Context) {
         val locale = Locale(code)
         Locale.setDefault(locale)
         val config = Configuration()
         config.locale = locale
-        MainActivity.getMainContext().resources.updateConfiguration(
-            config, MainActivity.getMainContext().resources.displayMetrics
+        context.resources.updateConfiguration(
+            config, context.resources.displayMetrics
         )
+    }
+
+    fun createOrOverwriteDefaultLang(code: String , context: Context){
+        val editor = context.getSharedPreferences(
+            Constants.SP_LOCALE, Context.MODE_PRIVATE
+        ).edit()
+
+        editor.putString(Constants.LANGUAGE,code)
+        editor.apply()
     }
 
     /*fun toggleLoggedIn(toggle:Boolean){
@@ -310,7 +320,7 @@ object Functions {
      *
      *
      */
-    fun showNotification(title: String? , content: String?) {
+    fun showNotification(title: String?, content: String?) {
 
         /**
          * @param title is a small heading that shows in the notification
@@ -422,5 +432,8 @@ object Functions {
         this.LATITUDE = lat
     }
 
+    fun parseResponse(json:JSONObject):Boolean{
+        return json.getString("code") == "200"
+    }
 
 }

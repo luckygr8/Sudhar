@@ -14,15 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.VolleyError
 import com.google.gson.Gson
-import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.sih2020.project.interfaces.HttpRequests
-import com.sih2020.project.interfaces.Initializers
-import com.sih2020.project.MainActivity
+import com.sih2020.project.interfaces.Initializer
+import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.constants.RestURLs
-import com.sih2020.project.transferObjects.City
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import org.json.JSONArray
@@ -30,7 +28,7 @@ import org.json.JSONObject
 
 
 class ViewReportsFragment : Fragment(), HttpRequests,
-    Initializers {
+    Initializer {
     override fun onSuccessPost(jsonObject: JSONObject, token: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

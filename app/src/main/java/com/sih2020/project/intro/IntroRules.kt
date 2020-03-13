@@ -7,15 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.sih2020.project.R
-import com.sih2020.project.interfaces.Initializers
+import com.sih2020.project.interfaces.Initializer
 
-class IntroRules : Fragment() , Initializers {
+class IntroRules : Fragment() , Initializer {
 
     private lateinit var root:View
 
     override fun bindViews() {
 
     }
+    
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

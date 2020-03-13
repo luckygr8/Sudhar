@@ -61,6 +61,9 @@ object Constants {
     val BOOT_INFO = "bootInfo"
     val FIRST_BOOT = "firstBoot"
 
+    val SP_LOCALE = "locale"
+    val LANGUAGE = "language"
+
     // errors
     val ERROR_REQUIRED = Functions.getRes().getString(R.string.required)
     val ERROR_PASSWORD_DONT_MATCH = Functions.getRes().getString(R.string.password_dont_match)
@@ -75,6 +78,7 @@ object Constants {
     const val USER_EMAIL = "email"
     const val USER_PASSWORD = "password"
     const val USER_NAME = "username"
+    const val USER_STATE = "state"
 
     // transfer object :: PROBLEM
     const val PROBLEM_STATUS = "status"

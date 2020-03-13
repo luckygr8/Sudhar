@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.sih2020.project.interfaces.Initializers
+import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.login.LoginFragment
-import com.sih2020.project.reportProblem.ReportProblemFragment
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.MultiFabs
 
 
-class HomeFragment : Fragment(), Initializers {
+class HomeFragment : Fragment(), Initializer {
 
     private lateinit var root: View
     private lateinit var fragment: Fragment
@@ -60,7 +59,7 @@ class HomeFragment : Fragment(), Initializers {
          */
 
         val user = Functions.getCurrentUser()
-        if (user?.email.isNullOrBlank()) {
+        if (user?.useremail.isNullOrBlank()) {
             val fragmentTransaction = fragmentManager?.beginTransaction()
             fragmentTransaction?.replace(R.id.nav_host_fragment, LoginFragment())
             fragmentTransaction?.commit()

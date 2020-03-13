@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
-import com.sih2020.project.MainActivity
+import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
-import com.sih2020.project.interfaces.Initializers
+import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.intro.IntroActivity
 import com.sih2020.project.utility.Functions
 import kotlinx.coroutines.CoroutineScope
@@ -16,7 +16,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class SplashActivity : AppCompatActivity(), Initializers {
+class SplashActivity : AppCompatActivity(), Initializer {
 
     private lateinit var finish: MaterialButton
     private lateinit var appTitle: TextView
@@ -55,13 +55,11 @@ class SplashActivity : AppCompatActivity(), Initializers {
         finish.setOnClickListener {
             // Do the language code
             val locale = languageSpinner.selectedItem as String
-            Functions.changeLanguage(decodeLocale(locale))
-
-            CoroutineScope(Dispatchers.Main).launch {
-                startActivity(Intent(baseContext, IntroActivity::class.java))
-                finish()
-            }
+            Functions.createOrOverwriteDefaultLang(locale,this)
+            startActivity(Intent(baseContext, IntroActivity::class.java))
+            finish()
         }
+
         languageSpinner = findViewById(R.id.languageSpinner)
         val adapter = ArrayAdapter<String>(
             MainActivity.getMainContext(),

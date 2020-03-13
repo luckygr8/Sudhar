@@ -8,13 +8,13 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.android.volley.VolleyError
 import com.sih2020.project.interfaces.HttpRequests
-import com.sih2020.project.interfaces.Initializers
+import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.R
 import org.json.JSONArray
 import org.json.JSONObject
 
 class ReportProblemFragment : Fragment(), HttpRequests,
-    Initializers {
+    Initializer {
 
     private lateinit var root: View
     private lateinit var fragment: Fragment

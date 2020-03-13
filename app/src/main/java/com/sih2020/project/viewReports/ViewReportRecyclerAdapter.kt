@@ -19,7 +19,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.sih2020.project.MainActivity
+import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.constants.RestURLs

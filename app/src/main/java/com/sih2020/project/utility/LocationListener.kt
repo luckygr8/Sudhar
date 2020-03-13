@@ -6,7 +6,7 @@ import android.location.LocationListener
 import android.os.Bundle
 import android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS
 import androidx.core.content.ContextCompat.startActivity
-import com.sih2020.project.MainActivity
+import com.sih2020.project.base.MainActivity
 
 
 class LocationListener : LocationListener {

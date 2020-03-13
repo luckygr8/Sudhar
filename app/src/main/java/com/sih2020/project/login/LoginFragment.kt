@@ -15,19 +15,18 @@ import com.google.android.material.textfield.TextInputEditText
 /*import com.romainpiel.shimmer.Shimmer
 import com.romainpiel.shimmer.ShimmerTextView*/
 import com.sih2020.project.interfaces.HttpRequests
-import com.sih2020.project.interfaces.Initializers
+import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.home.HomeFragment
 import com.sih2020.project.transferObjects.User
-import com.sih2020.project.utility.Cypher
 import com.sih2020.project.utility.Functions
 import org.json.JSONArray
 import org.json.JSONObject
 
 
-class LoginFragment : Fragment(), Initializers,
+class LoginFragment : Fragment(), Initializer,
     HttpRequests {
 
     private lateinit var root: View
@@ -176,11 +175,11 @@ class LoginFragment : Fragment(), Initializers,
             return
         }
 
-        val user = User(email = LOGINEMAIL , password = Cypher.hashPassword(LOGINPASSWORD))
+        /*val user = User(email = LOGINEMAIL , password = Cypher.hashPassword(LOGINPASSWORD))
         Functions.postJsonObject(
             RestURLs.POST_LOGIN_T, this,
             Constants.OBJECT_TYPE_USER, user, loginToken
-        )
+        )*/
 
     }
 
@@ -213,7 +212,7 @@ class LoginFragment : Fragment(), Initializers,
                 Functions.showToast(R.string.signUpSuccess,true)
                 Functions.setCurrentUser(
                     User(
-                        email = email.text.toString(),
+                        useremail = email.text.toString(),
                         username = name.text.toString()
                     )
                 )
@@ -259,7 +258,7 @@ class LoginFragment : Fragment(), Initializers,
 
         Functions.postJsonObject(
             RestURLs.POST_CHECK_T, this, Constants.OBJECT_TYPE_USER,
-            User(email = EMAIL
+            User(useremail = EMAIL
             ), checkToken
         )
 
@@ -305,14 +304,14 @@ class LoginFragment : Fragment(), Initializers,
             return
         }
 
-        val user = User(email = EMAIL, password = Cypher.hashPassword(PASSWORD), username = NAME)
+        /*val user = User(email = EMAIL, password = Cypher.hashPassword(PASSWORD), username = NAME)
         Functions.postJsonObject(
             RestURLs.POST_REGISTER_T,
             this,
             Constants.OBJECT_TYPE_USER,
             user,
             signupToken
-        )
+        )*/
         freeze(email,name,password,confirmPassword,verify,checkEmail)
         // TODO progress bar of signup
     }
