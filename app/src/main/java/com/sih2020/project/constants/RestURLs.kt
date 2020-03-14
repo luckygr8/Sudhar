@@ -18,6 +18,7 @@ object RestURLs {
      */
 
     val POST_INTRO = "$BASE_URL/intro"
+    val POST_INTRO_ALREADYREGISTERED = "$POST_INTRO/alreadyRegistered"
 
     val POST_PROBLEM = "$BASE_URL/problem/"
     val POST_CHECK_EMAIL = "$BASE_URL/check/"

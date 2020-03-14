@@ -131,7 +131,7 @@ object Functions {
     ) {
         requestQueue.cancelAll { true }
         val json = parseObjectToJson(objectType, data)
-        Log.d(Constants.LOG_TAG, json.toString())
+        Log.d(Constants.LOG_TAG, json.toString() + "from POST METHOD")
         val request = object : JsonObjectRequest(
             Method.POST,
             URL,

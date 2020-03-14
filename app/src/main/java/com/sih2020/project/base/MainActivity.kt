@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -19,9 +20,10 @@ import com.sih2020.project.R
 import com.sih2020.project.spash.SplashActivity
 import com.sih2020.project.settings.SettingsActivity
 import com.sih2020.project.utility.Functions
+import org.w3c.dom.Text
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     /**
      * @author Lakshay Dutta
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
+        navView.getHeaderView(0).findViewById<TextView>(R.id.currentUserInfo).text = "Welcome, ${Functions.getCurrentUser()?.useremail}"
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -64,6 +67,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
+        bindViews()
+
     }
 
     override fun onStart() {
@@ -72,6 +77,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SplashActivity::class.java))
             finish()
         }
+    }
+
+    override fun bindViews() {
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu): Boolean {

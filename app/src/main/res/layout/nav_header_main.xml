@@ -23,16 +23,16 @@
         android:layout_width="match_parent"
         android:text="@string/app_name"
         android:textSize="@dimen/h2"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
+        android:theme="@style/NormalTextWhite"
 
         android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/currentUserInfo"
         android:text="@string/appBy"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
-        android:fontFamily="@font/quicksand_medium"
+        android:theme="@style/NormalTextWhite"
+        android:fontFamily="@font/quicksand_bold"
+        android:textStyle="bold"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

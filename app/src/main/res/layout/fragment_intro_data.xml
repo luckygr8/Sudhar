@@ -109,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_corners_transparent"
                 android:fontFamily="@font/quicksand_semibold"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:textSize="@dimen/xl"
                 android:id="@+id/introData_email"
                 />
@@ -131,6 +131,7 @@
             app:layout_constraintGuide_end="@dimen/b2" />
 
         <TextView
+            android:id="@+id/introData_alreadyRegistered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="564dp"

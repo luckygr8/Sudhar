@@ -13,6 +13,7 @@ import com.sih2020.project.constants.Constants
 import com.sih2020.project.login.LoginFragment
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.MultiFabs
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class HomeFragment : Fragment(), Initializer {
