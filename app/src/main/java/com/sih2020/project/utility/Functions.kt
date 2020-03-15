@@ -35,7 +35,6 @@ import com.android.volley.toolbox.Volley
 import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
@@ -250,6 +249,7 @@ object Functions {
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE).edit()
         editor.putString(Constants.SP_CURRENT_USER_NAME, user.username)
         editor.putString(Constants.SP_CURRENT_USER_EMAIL, user.useremail)
+        editor.putString(Constants.SP_CURRENT_USER_STATE, user.userstate)
         editor.apply()
     }
 
@@ -258,7 +258,8 @@ object Functions {
             .getSharedPreferences(Constants.SP_CURRENT_USER, Context.MODE_PRIVATE)
         return User(
             username = pref.getString(Constants.SP_CURRENT_USER_NAME, ""),
-            useremail = pref.getString(Constants.SP_CURRENT_USER_EMAIL, "")
+            useremail = pref.getString(Constants.SP_CURRENT_USER_EMAIL, ""),
+            userstate = pref.getString(Constants.SP_CURRENT_USER_STATE, "")
         )
     }
 
@@ -286,7 +287,7 @@ object Functions {
         }
     }
 
-    fun changeLanguage(code: String , context: Context) {
+    fun changeLanguage(code: String, context: Context) {
         val locale = Locale(code)
         Locale.setDefault(locale)
         val config = Configuration()
@@ -296,12 +297,12 @@ object Functions {
         )
     }
 
-    fun createOrOverwriteDefaultLang(code: String , context: Context){
+    fun createOrOverwriteDefaultLang(code: String, context: Context) {
         val editor = context.getSharedPreferences(
             Constants.SP_LOCALE, Context.MODE_PRIVATE
         ).edit()
 
-        editor.putString(Constants.LANGUAGE,code)
+        editor.putString(Constants.LANGUAGE, code)
         editor.apply()
     }
 
@@ -432,7 +433,7 @@ object Functions {
         this.LATITUDE = lat
     }
 
-    fun parseResponse(json:JSONObject):Boolean{
+    fun parseResponse(json: JSONObject): Boolean {
         return json.getString("code") == "200"
     }
 

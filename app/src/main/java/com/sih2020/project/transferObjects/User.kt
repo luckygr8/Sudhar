@@ -32,7 +32,7 @@ class User(
     }
 
     override fun toString(): String {
-        return "User(email=$useremail, username=$username)"
+        return "User(email=$useremail, username=$username) , userstate=${userstate}"
     }
 
 }

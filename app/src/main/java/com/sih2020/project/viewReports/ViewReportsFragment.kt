@@ -35,8 +35,8 @@ class ViewReportsFragment : Fragment(), HttpRequests,
 
     private lateinit var root: View
 
-    private lateinit var viewReports_recycler: RecyclerView
-    private lateinit var viewReports_spinner: Spinner
+    private lateinit var viewReportsRecycler: RecyclerView
+    private lateinit var viewReportsSpinner: Spinner
     private lateinit var gson: Gson
     private lateinit var fragment: HttpRequests
     private lateinit var parent: ConstraintLayout
@@ -56,6 +56,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
 
     override fun onSuccessArrayGet(jsonArray: JSONArray, token: Int) {
         // kotlin's "when" and java's "switch" are pretty much the same
+        print(jsonArray.toString())
         when (token) {
 
             tokenSpinner -> {
@@ -74,7 +75,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     }
 
     override fun onSuccessObjectGet(jsonObject: JSONObject, token: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        print(jsonObject.toString())
     }
 
     override fun onError(volleyError: VolleyError) {
@@ -87,12 +88,13 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     override fun bindViews() {
         parent = root.findViewById(R.id.parent)
 
-        viewReports_recycler = root.findViewById(R.id.viewReports_recycler)
-        viewReports_recycler.layoutManager = LinearLayoutManager(root.context)
+        viewReportsRecycler = root.findViewById(R.id.viewReports_recycler)
+        viewReportsRecycler.layoutManager = LinearLayoutManager(root.context)
 
-        viewReports_spinner = root.findViewById(R.id.viewReports_spinner)
+        viewReportsSpinner = root.findViewById(R.id.viewReports_spinner)
 
-        Functions.getJsonArray(RestURLs.GET_CITIES, fragment, tokenSpinner)
+        val state = Functions.getCurrentUser()?.userstate
+        Functions.getJsonArray("${RestURLs.GET_CITIES}/$state", fragment, tokenSpinner)
 
         gson = Gson()
     }
@@ -122,10 +124,10 @@ class ViewReportsFragment : Fragment(), HttpRequests,
         )
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
-        viewReports_spinner.adapter = adapter
+        viewReportsSpinner.adapter = adapter
 
         //on item selected
-        viewReports_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        viewReportsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -138,7 +140,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
             ) {
                 if (position <= 0) return
                 val city = parent?.getItemAtPosition(position) as String
-                Functions.getJsonArray("${RestURLs.GET_CITIES}/$city", fragment, tokenrecycler)
+                Functions.getJsonArray("${RestURLs.GET_PROBLEMS}/$city", fragment, tokenrecycler)
             }
 
         }
@@ -148,8 +150,8 @@ class ViewReportsFragment : Fragment(), HttpRequests,
         val adapter = ViewReportRecyclerAdapter(problems, this)
         adapter.setHasStableIds(true)
 
-        viewReports_recycler.setItemViewCacheSize(problems.size)
-        viewReports_recycler.adapter = adapter
+        viewReportsRecycler.setItemViewCacheSize(problems.size)
+        viewReportsRecycler.adapter = adapter
     }
 
 

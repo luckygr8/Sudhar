@@ -23,7 +23,7 @@
                 android:layout_margin="@dimen/m2"
                 android:layout_width="@dimen/m5"
                 android:layout_gravity="end|center_vertical"
-                android:background="@drawable/settings_icon"
+                android:background="@drawable/preferences"
                 android:layout_height="@dimen/m5"/>
         </androidx.appcompat.widget.Toolbar>
 

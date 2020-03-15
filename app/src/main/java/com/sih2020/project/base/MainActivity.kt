@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -18,9 +17,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.sih2020.project.R
 import com.sih2020.project.spash.SplashActivity
-import com.sih2020.project.settings.SettingsActivity
+import com.sih2020.project.preferences.PreferencesActivity
 import com.sih2020.project.utility.Functions
-import org.w3c.dom.Text
 
 
 class MainActivity : BaseActivity() {
@@ -64,7 +62,7 @@ class MainActivity : BaseActivity() {
 
         settings = findViewById(R.id.settings)
         settings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, PreferencesActivity::class.java))
         }
 
         bindViews()

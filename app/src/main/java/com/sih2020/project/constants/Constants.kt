@@ -11,35 +11,35 @@ object Constants {
 
     // Indian States - SORTED.
     val INDIAN_STATES = arrayOf(
-        "Andhra Pradesh",
-        "Arunachal Pradesh",
-        "Assam",
-        "Bihar",
-        "Chattisgarh",
-        "Delhi",
+//        "Andhra Pradesh",
+//        "Arunachal Pradesh",
+//        "Assam",
+//        "Bihar",
+//        "Chattisgarh",
+//        "Delhi",
         "Goa",
-        "Gujarat",
-        "Haryana",
-        "Himachal Pradesh",
-        "Jharkhand",
-        "Karnataka",
-        "Kerala",
-        "Madhya Pradesh",
-        "Maharashtra",
-        "Manipur",
-        "Meghalaya",
-        "Mizoram",
-        "Nagaland",
-        "Odisha",
-        "Punjab",
-        "Rajasthan",
-        "Sikkim",
-        "Tamil Nadu",
-        "Telangana",
-        "Tripura",
-        "Uttrakhand",
-        "West Bengal")
-    //
+//        "Gujarat",
+        "Haryana"
+//        "Himachal Pradesh",
+//        "Jharkhand",
+//        "Karnataka",
+//        "Kerala",
+//        "Madhya Pradesh",
+//        "Maharashtra",
+//        "Manipur",
+//        "Meghalaya",
+//        "Mizoram",
+//        "Nagaland",
+//        "Odisha",
+//        "Punjab",
+//        "Rajasthan",
+//        "Sikkim",
+//        "Tamil Nadu",
+//        "Telangana",
+//        "Tripura",
+//        "Uttrakhand",
+//        "West Bengal"
+        )
 
     const val LOC_TIME:Long = 30000L // 30 seconds
     const val LOC_DIST:Float = 0.05F
@@ -49,7 +49,7 @@ object Constants {
 
     val CHANNEL_ID = "SUDHAR"
 
-    // for shared Preferences -- SP
+    // for shared PreferencesActivity -- SP
     val SP_LOGIN = "login" // default value is false
     val SP_LOGIN_isLoggedin = "isLoggedIn"
     val SP_SIGNUP_OTP = "otp"
@@ -57,6 +57,7 @@ object Constants {
     val SP_CURRENT_USER= "currentUser"
     val SP_CURRENT_USER_NAME="currentUsername"
     val SP_CURRENT_USER_EMAIL="currentUseremail"
+    val SP_CURRENT_USER_STATE="currentUserstate"
 
     val BOOT_INFO = "bootInfo"
     val FIRST_BOOT = "firstBoot"

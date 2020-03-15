@@ -1,10 +1,10 @@
-package com.sih2020.project.settings
+package com.sih2020.project.preferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sih2020.project.R
 
-class SettingsActivity : AppCompatActivity() {
+class PreferencesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
