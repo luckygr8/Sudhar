@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
+import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +56,7 @@ class SendFragment : Fragment() , HttpRequests {
      * This code is just for testing
      */
     private lateinit var imageview: ImageView
+    private lateinit var base64:String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,7 +78,8 @@ class SendFragment : Fragment() , HttpRequests {
         startActivityForResult(Intent.createChooser(intent, "pick a photo"), 1000)
         //startActivityForResult(Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE),1000)
         button.setOnClickListener {
-
+            Functions.postJsonObject(RestURLs.POST_PROBLEM,this,Constants.OBJECT_TYPE_PROBLEM,
+                Problem(imageid = base64),1)
         }
 
         return root
@@ -94,7 +97,7 @@ class SendFragment : Fragment() , HttpRequests {
                 val imageUri = data?.data
                 val imageStream: InputStream? = context?.contentResolver?.openInputStream(imageUri!!)
                 val bitmap:Bitmap  = BitmapFactory.decodeStream(imageStream)
-                val base64 = toBase64String(bitmap)
+                base64 = toBase64String(bitmap)
                 /*val decoded:ByteArray = Base64.decode(base64,0)
                 bitmap = BitmapFactory.decodeByteArray(decoded,0,decoded.size)*/
                 Log.d(Constants.LOG_TAG,base64)

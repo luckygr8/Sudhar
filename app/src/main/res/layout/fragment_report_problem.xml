@@ -98,9 +98,10 @@
 
 <!--        &lt;!&ndash; click to add photo &ndash;&gt;-->
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/nopic"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/image_select"
             tools:ignore="ContentDescription" />
 
 
