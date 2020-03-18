@@ -20,9 +20,14 @@ import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
+import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -62,7 +67,7 @@ class ViewReportsFragment : Fragment(), HttpRequests,
             tokenSpinner -> {
                 val type = object : TypeToken<List<String>>() {}.type
                 val cities = gson.fromJson<ArrayList<String>>(jsonArray.toString(), type)
-                attachSpinner(cities)
+                //attachSpinner(cities)
             }
 
             tokenrecycler -> {
@@ -94,8 +99,10 @@ class ViewReportsFragment : Fragment(), HttpRequests,
         viewReportsSpinner = root.findViewById(R.id.viewReports_spinner)
 
         val state = Functions.getCurrentUser()?.userstate
-        Functions.getJsonArray("${RestURLs.GET_CITIES}/$state", fragment, tokenSpinner)
-
+        CoroutineScope(Dispatchers.Main).launch {
+            attachSpinner(India.Cities.getCities(state!!))
+        }
+        // TODO  Functions.getJsonArray("${RestURLs.GET_CITIES}/$state", fragment, tokenSpinner)
         gson = Gson()
     }
 

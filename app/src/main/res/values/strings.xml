@@ -1,7 +1,5 @@
 <resources>
 
-    <string name="appBy" translatable="false">THE TURING MACHINE @SIH</string>
-
     <string name="app_name" translatable="false">Sudhar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,14 +14,14 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="menu_viewProblems">View Reports</string>
+    <string name="menu_reportProblems">Report a Problem</string>
 
     <string name="dummy_string" translatable="false">Lorem Ipsum</string>
     <string name="dummy_line" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id dapibus massa. Vivamus ultricies eros nec nibh consequat fringilla. Sed in nisl ut diam pretium tempor a non lorem.</string>
     <string name="dummy_paragraph" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id dapibus massa. Vivamus ultricies eros nec nibh consequat fringilla. Sed in nisl ut diam pretium tempor a non lorem. Donec sollicitudin mauris sed urna pharetra, sit amet luctus leo luctus. In ac turpis gravida, fringilla dui eu, accumsan turpis. Duis non dictum lorem. In eu risus in nulla varius laoreet at sit amet sapien. Etiam imperdiet ante non erat laoreet, vel facilisis enim imperdiet. Pellentesque ullamcorper ultrices libero, vitae aliquet metus rutrum ut. Curabitur efficitur ex sit amet ligula hendrerit, at feugiat ante mollis. Maecenas sodales, nulla eget mollis semper, tellus massa gravida ante, at convallis dui leo id purus. Maecenas posuere est in dignissim ornare. Cras consectetur odio ex, in rhoncus tellus molestie nec.</string>
     <!-- Side Navigation-->
 
-    <string name="view_all_the_reports_in_any_area">View Reports</string>
-    <string name="report_a_problem">Report a Problem</string>
     <string name="enter_your_nickname">What shall we call you ?</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="save_this_information">save my settings</string>
@@ -68,6 +66,9 @@
 
     <string name="fill_this_value">fill this value</string>
     <string name="fill_correct_value">fill correct value</string>
+
+    <string name="welcome">Welcome,</string>
+
     <!---->
 
     <!-- status words -->

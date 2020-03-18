@@ -11,12 +11,12 @@
         <item
             android:id="@+id/nav_view_reports"
             android:icon="@drawable/view_reports"
-            android:title="@string/view_all_the_reports_in_any_area" />
+            android:title="@string/menu_viewProblems" />
 
         <item
             android:id="@+id/nav_report_problem"
             android:icon="@drawable/report_problem"
-            android:title="@string/report_a_problem" />
+            android:title="@string/menu_reportProblems" />
     </group>
 
     <item android:title="Communicate">

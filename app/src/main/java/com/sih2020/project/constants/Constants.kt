@@ -41,6 +41,8 @@ object Constants {
 //        "West Bengal"
         )
 
+    val ROAD_TYPE = arrayListOf("Highway","Main Road","Local Road","Village Road","Other")
+
     const val LOC_TIME:Long = 30000L // 30 seconds
     const val LOC_DIST:Float = 0.05F
 

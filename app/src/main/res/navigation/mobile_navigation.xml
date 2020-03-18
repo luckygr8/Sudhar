@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/nav_view_reports"
         android:name="com.sih2020.project.viewReports.ViewReportsFragment"
-        android:label="@string/view_all_the_reports_in_any_area"
+        android:label="@string/menu_viewProblems"
         tools:layout="@layout/fragment_view_reports_depricated" />
 
     <fragment
         android:id="@+id/nav_report_problem"
         android:name="com.sih2020.project.reportProblem.ReportProblemFragment"
-        android:label="@string/report_a_problem"
+        android:label="@string/menu_reportProblems"
         tools:layout="@layout/fragment_report_problem" />
 
     <fragment

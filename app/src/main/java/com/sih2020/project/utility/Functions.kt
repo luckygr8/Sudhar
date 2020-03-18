@@ -287,8 +287,12 @@ object Functions {
         }
     }
 
-    fun changeLanguage(code: String, context: Context) {
-        val locale = Locale(code)
+    fun initLocale(context: Context) {
+
+        val locale = Locale(context.getSharedPreferences(
+            Constants.SP_LOCALE, Context.MODE_PRIVATE
+        ).getString(Constants.LANGUAGE,"")!!)
+
         Locale.setDefault(locale)
         val config = Configuration()
         config.locale = locale

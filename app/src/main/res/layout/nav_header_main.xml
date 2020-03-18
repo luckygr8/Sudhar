@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:background="@drawable/nav_drawer_shape"
     android:backgroundTint="@color/primaryOrange"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/p3"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -19,20 +19,19 @@
         app:srcCompat="@mipmap/logo" />
 
     <TextView
-        android:padding="@dimen/p1"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/p1"
         android:text="@string/app_name"
         android:textSize="@dimen/h2"
-        android:theme="@style/NormalTextWhite"
+        android:theme="@style/NormalTextWhite" />
 
-        android:layout_height="wrap_content"/>
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/currentUserInfo"
-        android:text="@string/appBy"
-        android:theme="@style/NormalTextWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand_bold"
         android:textStyle="bold"
-        android:layout_height="wrap_content"/>
+        android:theme="@style/NormalTextWhite" />
 
 </LinearLayout>

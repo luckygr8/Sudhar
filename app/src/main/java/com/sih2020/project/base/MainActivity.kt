@@ -38,6 +38,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         context = this
+        //Functions.createOrOverwriteDefaultLang("hi",this)
+        Functions.initLocale(this)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -45,7 +47,7 @@ class MainActivity : BaseActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
-        navView.getHeaderView(0).findViewById<TextView>(R.id.currentUserInfo).text = "Welcome, ${Functions.getCurrentUser()?.useremail}"
+        navView.getHeaderView(0).findViewById<TextView>(R.id.currentUserInfo).text = "${resources.getString(R.string.welcome)}${Functions.getCurrentUser()?.useremail}"
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -108,7 +110,6 @@ class MainActivity : BaseActivity() {
             super.onBackPressed()
             return
         }
-
         this.doubleBackToExitPressedOnce = true
         Functions.showToast(R.string.backButtonPrompt, false)
 
