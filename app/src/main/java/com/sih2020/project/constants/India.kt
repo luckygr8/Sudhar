@@ -127,6 +127,7 @@ class India {
 
         fun getWards(city: String): Int = when (city) {
             // haryana
+            Faridabad -> 10
             Gurugram -> 10
             Panipat -> 10
             Ambala -> 10

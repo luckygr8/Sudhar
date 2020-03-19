@@ -12,12 +12,14 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
 import android.os.Vibrator
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
@@ -42,6 +44,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.io.ByteArrayOutputStream
 import java.util.*
 
 
@@ -439,6 +442,13 @@ object Functions {
 
     fun parseResponse(json: JSONObject): Boolean {
         return json.getString("code") == "200"
+    }
+
+    fun toBase64String(bitmap: Bitmap): String {
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val byte: ByteArray = baos.toByteArray()
+        return Base64.encodeToString(byte, Base64.DEFAULT)
     }
 
 }
