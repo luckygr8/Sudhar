@@ -100,13 +100,27 @@
 <!--            app:lrb_strokeRadius="12dp" />-->
 
 <!--        &lt;!&ndash; click to add photo &ndash;&gt;-->
-        <ImageView
-            android:id="@+id/reportProblem_choosePhoto"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/image_select"
-            tools:ignore="ContentDescription" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/reportProblem_choosePhoto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/image_select"
+                tools:ignore="ContentDescription" />
+            <ImageView
+                android:visibility="invisible"
+                android:layout_margin="@dimen/m2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/reportProblem_cancelPhoto"
+                android:layout_width="@dimen/b2"
+                android:layout_height="@dimen/b2"
+                android:src="@drawable/cancel"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
 
 
         <!-- exact address -->

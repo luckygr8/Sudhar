@@ -112,7 +112,7 @@ object Functions {
                 fragment.onError(error)
             }
         )
-        requestQueue.add(jsonArrayRequest)
+        requestQueue.add(jsonArrayRequest).retryPolicy = retryPolicy
 
     }
 
@@ -152,9 +152,7 @@ object Functions {
         requestQueue.add(request).retryPolicy = retryPolicy
     }
 
-    fun parseDate(date: String): CharSequence = date.subSequence(0, 10)
-
-    fun parseStatus(status: Int): String =
+    /*fun parseStatus(status: Int): String =
         when (status) {
             1 -> res.getString(R.string.received)
             2 -> res.getString(R.string.verified)
@@ -162,7 +160,7 @@ object Functions {
             4 -> res.getString(R.string.completed)
             5 -> res.getString(R.string.denied)
             else -> res.getString(R.string.unknown)
-        }
+        }*/
 
     fun isEmailValid(email: String): Boolean {
         val EMAIL_REGEX = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
@@ -446,7 +444,7 @@ object Functions {
 
     fun toBase64String(bitmap: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos)
         val byte: ByteArray = baos.toByteArray()
         return Base64.encodeToString(byte, Base64.DEFAULT)
     }

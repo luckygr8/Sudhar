@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,10 +27,7 @@ import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.Validate
 import kotlinx.android.synthetic.main.fragment_report_problem.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.InputStream
@@ -47,6 +43,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     private lateinit var reportProblemWard: Spinner
     private lateinit var reportProblemType: Spinner
     private lateinit var reportProblemChoosephoto: ImageView
+    private lateinit var reportproblemCancelphoto: ImageView
     private lateinit var reportProblemAddress: TextInputEditText
     private lateinit var reportProblemLandmark: TextInputEditText
     private lateinit var reportProblemDescription: TextInputEditText
@@ -62,6 +59,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         reportProblemWard = root.findViewById(R.id.reportProblem_ward)
         reportProblemType = root.findViewById(R.id.reportProblem_type)
         reportProblemChoosephoto = root.findViewById(R.id.reportProblem_choosePhoto)
+        reportproblemCancelphoto = root.findViewById(R.id.reportProblem_cancelPhoto)
         reportProblemAddress = root.findViewById(R.id.reportProblem_address)
         reportProblemLandmark = root.findViewById(R.id.reportProblem_landmark)
         reportProblemDescription = root.findViewById(R.id.reportProblem_description)
@@ -71,6 +69,13 @@ class ReportProblemFragment : Fragment(), HttpRequests,
 
         reportProblemPostproblem.setOnClickListener {
             postProblem()
+        }
+
+        reportproblemCancelphoto.setOnClickListener{
+            reportProblemChoosephoto.setImageBitmap(null)
+            reportProblemChoosephoto.setBackgroundResource(R.drawable.image_select)
+            reportproblemCancelphoto.visibility = View.INVISIBLE
+            base64 = ""
         }
 
         reportProblemChoosephoto.setOnClickListener {
@@ -99,9 +104,10 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     context?.contentResolver?.openInputStream(imageUri!!)
                 val bitmap: Bitmap = BitmapFactory.decodeStream(imageStream)
                 base64 = Functions.toBase64String(bitmap)
-                Log.d(Constants.LOG_TAG, base64)
                 CoroutineScope(Dispatchers.Main).launch {
-                    reportProblem_choosePhoto.setImageBitmap(bitmap)
+                    reportProblemChoosephoto.setImageDrawable(null)
+                    reportproblemCancelphoto.visibility = View.VISIBLE
+                    reportProblemChoosephoto.setImageBitmap(bitmap)
                 }
             }
         }

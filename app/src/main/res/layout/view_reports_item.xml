@@ -7,7 +7,7 @@
 
     <!-- top level card layout -->
     <androidx.cardview.widget.CardView
-        android:layout_margin="@dimen/m1"
+        android:layout_margin="@dimen/m0"
         android:layout_width="match_parent"
         app:cardElevation="@dimen/cardElevation"
         android:fadingEdgeLength="@dimen/m2"

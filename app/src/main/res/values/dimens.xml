@@ -8,7 +8,7 @@
     <dimen name="none">0dp</dimen>
     <dimen name="otpdimen">48dp</dimen>
 
-    <dimen name="cardRadii">15dp</dimen>
+    <dimen name="cardRadii">5dp</dimen>
     <dimen name="cardElevation">4dp</dimen>
     <dimen name="defaultRadius">10dp</dimen>
     <dimen name="defaultElevation">2dp</dimen>
@@ -36,6 +36,7 @@
     <dimen name="p9">40dp</dimen>
 
     <!-- margin sizes -->
+    <dimen name="m0">5dp</dimen>
     <dimen name="m1">10dp</dimen>
     <dimen name="m2">15dp</dimen>
     <dimen name="m3">20dp</dimen>

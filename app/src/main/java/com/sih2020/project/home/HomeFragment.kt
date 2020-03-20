@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sih2020.project.interfaces.Initializer
@@ -14,6 +15,10 @@ import com.sih2020.project.login.LoginFragment
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.MultiFabs
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment(), Initializer {
@@ -21,14 +26,15 @@ class HomeFragment : Fragment(), Initializer {
     private lateinit var root: View
     private lateinit var fragment: Fragment
 
-    private lateinit var fab: FloatingActionButton
+    private lateinit var homeLogo:ImageView
 
     override fun bindViews() {
-
-        fab = root.findViewById(R.id.fab)
-        val fabs = MultiFabs(root, "hint1", "hint2", "hint3")
-        fab.setOnClickListener {
-            fabs.toggle()
+        homeLogo = root.findViewById(R.id.home_logo)
+        CoroutineScope(Dispatchers.Main).launch {
+            while(true){
+                delay(30)
+                homeLogo.animate().rotationBy(10f).start()
+            }
         }
     }
 
@@ -48,7 +54,21 @@ class HomeFragment : Fragment(), Initializer {
         return root
     }
 
-    override fun onStart() {
+}
+
+/*var button = root.findViewById<Button>(R.id.open)
+     button.setOnClickListener {
+         val fragmentManager = fragmentManager
+         val fragmentTransaction = fragmentManager?.beginTransaction()
+         fragmentTransaction?.replace(R.id.nav_host_fragment, ReportProblemFragment())
+         fragmentTransaction?.commit()
+     }
+
+     var button = root.findViewById<Button>(R.id.open)
+     button.setOnClickListener{
+         startActivity(Intent(context,Second::class.java))
+     }*/
+/*override fun onStart() {
         super.onStart()
 
         /**
@@ -66,18 +86,4 @@ class HomeFragment : Fragment(), Initializer {
             fragmentTransaction?.commit()
             return
         }
-    }
-}
-
-/*var button = root.findViewById<Button>(R.id.open)
-     button.setOnClickListener {
-         val fragmentManager = fragmentManager
-         val fragmentTransaction = fragmentManager?.beginTransaction()
-         fragmentTransaction?.replace(R.id.nav_host_fragment, ReportProblemFragment())
-         fragmentTransaction?.commit()
-     }
-
-     var button = root.findViewById<Button>(R.id.open)
-     button.setOnClickListener{
-         startActivity(Intent(context,Second::class.java))
-     }*/
+    }*/

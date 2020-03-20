@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,8 +86,7 @@ class ViewReportRecyclerAdapter(
             //dialog.setCanceledOnTouchOutside(false)
             dialog.show()
 
-            //Glide.with(fragment).load("${RestURLs.BASE_URL}${problem.imageid}")
-            Glide.with(fragment).load(RestURLs.GET_PHOTO)
+            Glide.with(fragment).load("${RestURLs.SERVER}/${problem.imageid}")
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -174,7 +174,7 @@ class ViewReportRecyclerAdapter(
         holder.description.text = problem.description
         holder.address.text = problem.address
         holder.landmark.text = problem.landmark
-        holder.status.text = Functions.parseStatus(problem.status)
+        holder.status.text = problem.status
         holder.city.text = problem.city
         holder.date.text = problem.date
 

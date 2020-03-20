@@ -35,7 +35,7 @@ import org.json.JSONObject
 class ViewReportsFragment : Fragment(), HttpRequests,
     Initializer {
     override fun onSuccessPost(jsonObject: JSONObject, token: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     private lateinit var root: View
@@ -55,32 +55,21 @@ class ViewReportsFragment : Fragment(), HttpRequests,
      *
      * eg. when token = 1, means the result is for spinner.
      */
-
-    private val tokenSpinner = 1
     private val tokenrecycler = 2
 
     override fun onSuccessArrayGet(jsonArray: JSONArray, token: Int) {
         // kotlin's "when" and java's "switch" are pretty much the same
-        print(jsonArray.toString())
         when (token) {
-
-            tokenSpinner -> {
-                val type = object : TypeToken<List<String>>() {}.type
-                val cities = gson.fromJson<ArrayList<String>>(jsonArray.toString(), type)
-                //attachSpinner(cities)
-            }
-
             tokenrecycler -> {
                 val type = object : TypeToken<List<Problem>>() {}.type
                 val problems = gson.fromJson<ArrayList<Problem>>(jsonArray.toString(), type)
-                problems.forEach { Log.d(Constants.LOG_TAG,it.toString()) }
                 attachRecycler(problems)
             }
         }
     }
 
     override fun onSuccessObjectGet(jsonObject: JSONObject, token: Int) {
-        print(jsonObject.toString())
+
     }
 
     override fun onError(volleyError: VolleyError) {

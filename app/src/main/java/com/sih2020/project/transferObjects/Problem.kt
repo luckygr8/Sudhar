@@ -5,7 +5,7 @@ import com.sih2020.project.constants.Constants
 
 class Problem(
     @SerializedName(Constants.PROBLEM_STATUS)
-    var status: Int = 0,
+    var status: String = "",
 
     @SerializedName(Constants.PROBLEM_IMAGEID)
     var imageid: String = "",
@@ -56,19 +56,26 @@ class Problem(
         return true
     }
 
+
+
+    override fun toString(): String {
+        return "Problem(status=$status, imageid='$imageid', userid='$userid', roadtype=$roadtype, address='$address', description='$description', landmark='$landmark', date='$date', latitude='$latitude', longitude='$longitude', wardid=$wardid, city='$city')"
+    }
+
     override fun hashCode(): Int {
-        var result = status
+        var result = status.hashCode()
+        result = 31 * result + imageid.hashCode()
+        result = 31 * result + userid.hashCode()
+        result = 31 * result + roadtype.hashCode()
         result = 31 * result + address.hashCode()
         result = 31 * result + description.hashCode()
         result = 31 * result + landmark.hashCode()
         result = 31 * result + date.hashCode()
+        result = 31 * result + latitude.hashCode()
+        result = 31 * result + longitude.hashCode()
+        result = 31 * result + wardid.hashCode()
         result = 31 * result + city.hashCode()
-        result = 31 * result + roadtype.hashCode()
         return result
-    }
-
-    override fun toString(): String {
-        return "Problem(status=$status, imageid='$imageid', userid='$userid', roadtype=$roadtype, address='$address', description='$description', landmark='$landmark', date='$date', latitude='$latitude', longitude='$longitude', wardid=$wardid, city='$city')"
     }
 
 
