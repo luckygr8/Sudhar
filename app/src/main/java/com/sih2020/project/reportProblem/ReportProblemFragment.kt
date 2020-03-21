@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import com.android.volley.VolleyError
+import com.chaos.view.PinView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.sih2020.project.R
@@ -48,6 +49,12 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     private lateinit var reportProblemLandmark: TextInputEditText
     private lateinit var reportProblemDescription: TextInputEditText
     private lateinit var reportProblemPostproblem: MaterialButton
+
+    //otp vars
+    private lateinit var reportProblem_otp_email:TextInputEditText
+    private lateinit var reportProblem_otp_sendotp:MaterialButton
+    private lateinit var reportProblem_otp_enterotp:PinView
+    private lateinit var reportProblem_otp_verifyotp:MaterialButton
 
     // other vars
     private var base64: String = ""
@@ -88,6 +95,12 @@ class ReportProblemFragment : Fragment(), HttpRequests,
             intent.putExtra("aspectY", 9)
             startActivityForResult(Intent.createChooser(intent, "pick a photo"), 1000)
         }
+
+        // for OTP vars
+        reportProblem_otp_email = root.findViewById(R.id.reportProblem_otp_email)
+        reportProblem_otp_sendotp = root.findViewById(R.id.reportProblem_otp_sendotp)
+        reportProblem_otp_enterotp = root.findViewById(R.id.reportProblem_otp_enterotp)
+        reportProblem_otp_verifyotp = root.findViewById(R.id.reportProblem_otp_verifyotp)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -241,6 +254,12 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     1
                 )
             }
+        }
+    }
+
+    private fun freeze(status:Boolean , vararg views: View){
+        views.forEach {
+            it.isEnabled = status
         }
     }
 

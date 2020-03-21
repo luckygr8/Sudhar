@@ -13,9 +13,100 @@
         android:orientation="vertical"
         android:padding="@dimen/p7">
 
-        <!-- The layout can be split into 2 separate screens
-        if needed
-        -->
+        <!-- description -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_email"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reportProblem_otp_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_transparent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textEmailAddress"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- send OTP -->
+        <com.google.android.material.button.MaterialButton
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="@dimen/p1"
+            android:layout_marginStart="@dimen/p1"
+
+            android:id="@+id/reportProblem_otp_sendotp"
+
+            android:paddingTop="@dimen/p3"
+            android:paddingBottom="@dimen/p3"
+
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primaryOrange"
+            android:fontFamily="@font/quicksand_semibold"
+
+            android:text="@string/sendOTP"
+            android:textSize="@dimen/md"
+            app:cornerRadius="@dimen/cardRadii"
+            />
+
+        <com.chaos.view.PinView
+            android:id="@+id/reportProblem_otp_enterotp"
+            style="@style/PinWidget.PinView"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="@dimen/p1"
+            android:layout_marginStart="@dimen/p1"
+
+            android:padding="@dimen/p1"
+            android:layout_gravity="center"
+
+            app:itemHeight="@dimen/otpdimen"
+            app:itemWidth="@dimen/otpdimen"
+
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:textColor="@color/primaryOrange"
+            android:textSize="@dimen/xl"
+            android:textStyle="bold"
+            app:cursorColor="@color/primaryOrange"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="false"
+            app:itemCount="6"
+            app:itemRadius="@dimen/p5"
+            app:itemSpacing="5dp"
+
+            app:lineColor="@color/accentBlue"
+            app:lineWidth="3dp"
+            app:viewType="rectangle"
+            />
+
+        <!-- send OTP -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reportProblem_otp_verifyotp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="@dimen/p1"
+            android:layout_marginStart="@dimen/p1"
+
+            app:icon="@drawable/check"
+
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primaryOrange"
+            android:fontFamily="@font/quicksand_semibold"
+            android:padding="@dimen/p2"
+            android:text="@string/verify_via_OTP"
+            android:textSize="@dimen/l"
+            app:cornerRadius="@dimen/cardRadii" />
 
         <!-- city -->
         <LinearLayout
@@ -163,8 +254,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- description -->
-
-        <!-- post button -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -183,6 +272,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- post button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/reportProblem_postProblem"
             android:layout_width="match_parent"
