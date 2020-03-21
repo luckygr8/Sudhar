@@ -76,6 +76,7 @@ object Constants {
 
     val OBJECT_TYPE_PROBLEM = 0
     val OBJECT_TYPE_USER = 1
+    val OBJECT_TYPE_OTP  =2
 
     // transfer object :: USER
     const val USER_EMAIL = "email"
@@ -97,6 +98,10 @@ object Constants {
     const val PROBLEM_LONGITUDE = "longitude"
     const val PROBLEM_TIME = "time"
     const val PROBLEM_ROAD_TYPE = "roadtype"
+
+    // transfer object :: OTP
+    const val OTP_EMAIL = "email"
+    const val OTP_OTP = "otp"
 
 
 }

@@ -38,6 +38,7 @@ import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.interfaces.HttpRequests
+import com.sih2020.project.transferObjects.Otp
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
 import kotlinx.coroutines.CoroutineScope
@@ -133,7 +134,7 @@ object Functions {
     ) {
         requestQueue.cancelAll { true }
         val json = parseObjectToJson(objectType, data)
-        Log.d(Constants.LOG_TAG, json.toString() + "from POST METHOD")
+        Log.d(Constants.LOG_TAG, json.toString() + "from POST METHOD $URL")
         val request = object : JsonObjectRequest(
             Method.POST,
             URL,
@@ -203,6 +204,20 @@ object Functions {
                     put(Constants.USER_NAME, user.username)
                     put(Constants.USER_EMAIL, user.useremail)
                     put(Constants.USER_STATE, user.userstate)
+                }
+
+                jsonObject
+            }
+
+            Constants.OBJECT_TYPE_OTP -> {
+                val otp = data as Otp
+
+                jsonObject.run {
+
+
+                    put(Constants.OTP_EMAIL, otp.email)
+                    put(Constants.OTP_OTP, otp.otp)
+
                 }
 
                 jsonObject
