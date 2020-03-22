@@ -1,5 +1,6 @@
 package com.sih2020.project.utility
 
+import android.widget.EditText
 import android.widget.Spinner
 import com.google.android.material.textfield.TextInputEditText
 import com.sih2020.project.base.MainActivity
@@ -9,7 +10,7 @@ object Validate {
 
     private val res = MainActivity.getMainContext().resources
 
-    fun validateTextFields(vararg textFields: TextInputEditText):Boolean{
+    fun validateTextFields(vararg textFields: EditText):Boolean{
         textFields.forEach {
             if(it.text.isNullOrBlank()){
                 it.error = res.getString(R.string.required)
@@ -19,7 +20,7 @@ object Validate {
         return true
     }
 
-    fun validateEmailFields(vararg emailFields:TextInputEditText):Boolean{
+    fun validateEmailFields(vararg emailFields:EditText):Boolean{
         emailFields.forEach {
             if(!Functions.isEmailValid(it.text.toString())){
                 it.error = res.getString(R.string.email_is_not_valid)

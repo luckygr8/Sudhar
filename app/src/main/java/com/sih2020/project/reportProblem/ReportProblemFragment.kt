@@ -1,9 +1,12 @@
 package com.sih2020.project.reportProblem
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,13 +25,17 @@ import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
+import com.sih2020.project.home.HomeFragment
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.interfaces.Initializer
+import com.sih2020.project.transferObjects.Otp
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.Validate
-import kotlinx.android.synthetic.main.fragment_report_problem.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.InputStream
@@ -51,10 +58,13 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     private lateinit var reportProblemPostproblem: MaterialButton
 
     //otp vars
-    private lateinit var reportProblem_otp_email:TextInputEditText
-    private lateinit var reportProblem_otp_sendotp:MaterialButton
-    private lateinit var reportProblem_otp_enterotp:PinView
-    private lateinit var reportProblem_otp_verifyotp:MaterialButton
+    private lateinit var dialog: Dialog
+    private lateinit var reportProblem_otp_email: TextInputEditText
+    private lateinit var reportProblem_otp_sendotp: MaterialButton
+    private lateinit var reportProblem_otp_enterotp: PinView
+    private lateinit var reportProblem_otp_verifyotp: MaterialButton
+    private lateinit var reportProblem_otp_cancel: MaterialButton
+
 
     // other vars
     private var base64: String = ""
@@ -78,7 +88,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
             postProblem()
         }
 
-        reportproblemCancelphoto.setOnClickListener{
+        reportproblemCancelphoto.setOnClickListener {
             reportProblemChoosephoto.setImageBitmap(null)
             reportProblemChoosephoto.setBackgroundResource(R.drawable.image_select)
             reportproblemCancelphoto.visibility = View.INVISIBLE
@@ -97,10 +107,40 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         }
 
         // for OTP vars
-        reportProblem_otp_email = root.findViewById(R.id.reportProblem_otp_email)
-        reportProblem_otp_sendotp = root.findViewById(R.id.reportProblem_otp_sendotp)
-        reportProblem_otp_enterotp = root.findViewById(R.id.reportProblem_otp_enterotp)
-        reportProblem_otp_verifyotp = root.findViewById(R.id.reportProblem_otp_verifyotp)
+        dialog = Dialog(requireContext(), R.style.SlideInOut)
+        dialog.setContentView(R.layout.dialog_for_otp)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCanceledOnTouchOutside(false)
+
+        reportProblem_otp_email = dialog.findViewById(R.id.reportProblem_otp_email)
+        reportProblem_otp_sendotp = dialog.findViewById(R.id.reportProblem_otp_sendotp)
+        reportProblem_otp_enterotp = dialog.findViewById(R.id.reportProblem_otp_enterotp)
+        reportProblem_otp_verifyotp = dialog.findViewById(R.id.reportProblem_otp_verifyotp)
+        reportProblem_otp_cancel = dialog.findViewById(R.id.reportProblem_otp_cancel)
+
+        freeze(
+            false,
+            reportProblemCity,
+            reportProblemWard,
+            reportProblemType,
+            reportProblemChoosephoto,
+            reportProblemAddress,
+            reportProblemLandmark,
+            reportProblemDescription,
+            reportProblemPostproblem
+        )
+
+        reportProblem_otp_email.setText(Functions.getCurrentUser()?.useremail)
+        reportProblem_otp_sendotp.setOnClickListener {
+            sendOTP()
+        }
+        reportProblem_otp_verifyotp.setOnClickListener { verifyOTP() }
+        reportProblem_otp_cancel.setOnClickListener{
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.nav_host_fragment, HomeFragment())
+            fragmentTransaction?.commit()
+            dialog.dismiss()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -135,6 +175,40 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     Functions.showToast(jsonObject.getString("message"), true)
                 }
             }
+            2 -> {
+                if (Functions.parseResponse(jsonObject)) {
+                    print(jsonObject.toString())
+                    Functions.showToast(jsonObject.getString("message"), true)
+                    freeze(
+                        true,
+                        reportProblemCity,
+                        reportProblemWard,
+                        reportProblemType,
+                        reportProblemChoosephoto,
+                        reportProblemAddress,
+                        reportProblemLandmark,
+                        reportProblemDescription,
+                        reportProblemPostproblem
+                    )
+                    freeze(
+                        false,
+                        reportProblem_otp_email,
+                        reportProblem_otp_sendotp,
+                        reportProblem_otp_enterotp,
+                        reportProblem_otp_verifyotp
+                    )
+                    dialog.dismiss()
+                }
+            }
+            3 -> {
+                if (Functions.parseResponse(jsonObject)) {
+                    print(jsonObject.toString())
+                    Functions.showToast(jsonObject.getString("message"), true)
+                    val fragmentTransaction = fragmentManager?.beginTransaction()
+                    fragmentTransaction?.replace(R.id.nav_host_fragment, HomeFragment())
+                    fragmentTransaction?.commit()
+                }
+            }
         }
     }
 
@@ -158,6 +232,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         root = inflater.inflate(R.layout.fragment_report_problem, container, false)
         fragment = this
         bindViews()
+        dialog.show()
 
         return root
     }
@@ -251,16 +326,38 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     fragment,
                     Constants.OBJECT_TYPE_PROBLEM,
                     problem,
-                    1
+                    3
                 )
             }
         }
     }
 
-    private fun freeze(status:Boolean , vararg views: View){
+    private fun freeze(status: Boolean, vararg views: View) {
         views.forEach {
             it.isEnabled = status
         }
+    }
+
+    private fun sendOTP() {
+        if (Validate.validateEmailFields(reportProblem_otp_email))
+            Functions.postJsonObject(
+                RestURLs.POST_OTP, this, Constants.OBJECT_TYPE_OTP,
+                Otp(
+                    email = Functions.getCurrentUser()?.useremail!!,
+                    otp = ""
+                ), 1
+            )
+    }
+
+    private fun verifyOTP() {
+        if (Validate.validateTextFields(reportProblem_otp_enterotp))
+            Functions.postJsonObject(
+                RestURLs.POST_OTP_VERIFY, this, Constants.OBJECT_TYPE_OTP,
+                Otp(
+                    email = Functions.getCurrentUser()?.useremail!!,
+                    otp = reportProblem_otp_enterotp.text.toString()
+                ), 2
+            )
     }
 
 }
