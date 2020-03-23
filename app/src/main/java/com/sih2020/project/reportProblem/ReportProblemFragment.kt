@@ -169,16 +169,9 @@ class ReportProblemFragment : Fragment(), HttpRequests,
 
     override fun onSuccessPost(jsonObject: JSONObject, token: Int) {
         when (token) {
-            1 -> {
-                if (Functions.parseResponse(jsonObject)) {
-                    print(jsonObject.toString())
-                    Functions.showToast(jsonObject.getString("message"), true)
-                }
-            }
+            1 -> Functions.showToast(jsonObject.getString("message"),true)
             2 -> {
                 if (Functions.parseResponse(jsonObject)) {
-                    print(jsonObject.toString())
-                    Functions.showToast(jsonObject.getString("message"), true)
                     freeze(
                         true,
                         reportProblemCity,
@@ -199,15 +192,16 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     )
                     dialog.dismiss()
                 }
+                Functions.showToast(jsonObject.getString("message"), true)
             }
             3 -> {
                 if (Functions.parseResponse(jsonObject)) {
                     print(jsonObject.toString())
-                    Functions.showToast(jsonObject.getString("message"), true)
                     val fragmentTransaction = fragmentManager?.beginTransaction()
                     fragmentTransaction?.replace(R.id.nav_host_fragment, HomeFragment())
                     fragmentTransaction?.commit()
                 }
+                Functions.showToast(jsonObject.getString("message"), true)
             }
         }
     }

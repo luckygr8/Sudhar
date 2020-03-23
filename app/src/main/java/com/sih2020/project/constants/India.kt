@@ -82,7 +82,7 @@ class India {
         val Palwal = "Palwal"
         val Pundri = "Pundri"
         val Kosli = "Kosli"
-        val Chandigarh = "Chandigar"
+        val Chandigarh = "Chandigarh"
 
         private val Haryana = arrayListOf(
             Faridabad,
