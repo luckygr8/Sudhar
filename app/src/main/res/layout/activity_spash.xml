@@ -43,7 +43,7 @@
         android:alpha="0"
 
         android:background="@drawable/rounded_corners_transparent"
-        android:backgroundTint="@color/backgroundOrange"
+        android:backgroundTint="@color/backgroundDark"
         android:elevation="20dp">
 
         <TextView

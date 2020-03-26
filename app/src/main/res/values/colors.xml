@@ -23,8 +23,8 @@
     <color name="primaryPurple">#3e206d</color>
     <color name="backgroundPurple">#916dd5</color>
 
-    <color name="primaryOrange">#f8615a</color>
-    <color name="backgroundOrange">#111</color>
+    <color name="primaryDark">#333</color>
+    <color name="backgroundDark">#111</color>
 
     <!-- material light colors -->
     <color name="lightPink">#ffb6b9</color>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/intro_data_back" android:layout_height="match_parent" android:layout_width="match_parent"
+    android:background="@drawable/back_dark" android:layout_height="match_parent" android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,7 @@
 
             android:layout_marginTop="432dp"
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/backgroundOrange"
+            android:backgroundTint="@color/backgroundDark"
             android:elevation="@dimen/cardElevation"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintHorizontal_bias="0.0"

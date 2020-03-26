@@ -18,7 +18,7 @@
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         android:background="@drawable/nav_drawer_shape"
-        android:backgroundTint="@color/backgroundOrange"
+        android:backgroundTint="@color/backgroundDark"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"

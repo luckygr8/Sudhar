@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/rounded_corners"
+    android:background="@drawable/rounded_corners_transparent"
+    android:backgroundTint="@color/greyishWhite"
     android:layout_margin="@dimen/m1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -45,7 +46,7 @@
             android:paddingBottom="@dimen/p3"
 
             android:layout_gravity="center"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:fontFamily="@font/quicksand_semibold"
 
             android:text="@string/sendOTP"
@@ -71,10 +72,10 @@
 
             android:cursorVisible="true"
             android:inputType="number"
-            android:textColor="@color/primaryOrange"
+            android:textColor="@color/primaryDark"
             android:textSize="@dimen/xl"
             android:textStyle="bold"
-            app:cursorColor="@color/primaryOrange"
+            app:cursorColor="@color/primaryDark"
             app:cursorWidth="2dp"
             app:hideLineWhenFilled="false"
             app:itemCount="6"
@@ -99,7 +100,7 @@
             app:icon="@drawable/check"
 
             android:layout_gravity="center"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:fontFamily="@font/quicksand_semibold"
             android:padding="@dimen/p2"
             android:text="@string/verify_via_OTP"
@@ -116,7 +117,7 @@
             android:layout_marginStart="@dimen/p1"
 
             android:layout_gravity="center"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:fontFamily="@font/quicksand_semibold"
             android:padding="@dimen/p2"
             android:text="close"

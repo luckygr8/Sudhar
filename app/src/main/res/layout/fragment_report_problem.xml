@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundOrange"
+    android:background="@drawable/back_dark"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,7 +23,7 @@
 
             android:layout_marginEnd="@dimen/p1"
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -43,7 +43,7 @@
             android:layout_marginEnd="@dimen/p1"
 
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -64,7 +64,7 @@
 
 
             android:background="@drawable/rounded_corners_transparent"
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:elevation="@dimen/defaultElevation">
 
             <Spinner
@@ -188,7 +188,7 @@
 
             android:layout_marginEnd="@dimen/p1"
 
-            android:backgroundTint="@color/primaryOrange"
+            android:backgroundTint="@color/primaryDark"
             android:fontFamily="@font/quicksand_semibold"
             android:padding="@dimen/p2"
             android:text="@string/post_the_problem"

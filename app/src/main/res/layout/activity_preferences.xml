@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/back_light" android:layout_height="match_parent" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".preferences.PreferencesActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/m0"
+            android:text="@string/enter_your_nickname"
+            android:theme="@style/NormalTextBlack"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/textInputLayout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_your_email"
+            android:theme="@style/NormalTextBlack"
+            android:layout_marginBottom="@dimen/m0"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintBottom_toTopOf="@id/textInputLayout2" />
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/edit_preferences"
+            android:theme="@style/HeadingBlack"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Spinner
+            android:id="@+id/introData_spinner"
+            android:layout_width="331dp"
+
+            android:layout_height="64dp"
+
+            android:layout_marginTop="@dimen/b2"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/backgroundDark"
+            android:elevation="@dimen/cardElevation"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/select_your_state"
+            android:theme="@style/NormalTextBlack"
+            app:layout_constraintBottom_toTopOf="@+id/introData_spinner"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="331dp"
+            android:layout_height="106dp"
+            android:layout_marginTop="@dimen/b2"
+            android:hint="@string/enter_your_email"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/introData_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_transparent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textEmailAddress"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/introData_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grey"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="@dimen/m7"
+            android:fontFamily="@font/quicksand_semibold"
+            android:padding="@dimen/p2"
+            android:text="@string/confirm"
+            android:textSize="@dimen/l"
+            app:cornerRadius="@dimen/defaultRadius"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/choselocale_spinner" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="331dp"
+            android:layout_height="106dp"
+            android:layout_marginTop="@dimen/b3"
+            android:hint="@string/enter_your_nickname"
+            android:padding="@dimen/p1"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/heading">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/introData_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_transparent"
+                android:fontFamily="@font/quicksand_semibold"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/xl" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/b2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/b2" />
+
+        <TextView
+            android:layout_marginBottom="@dimen/b4"
+            android:id="@+id/log_out"
+            app:layout_constraintStart_toStartOf="@id/guideline3"
+            app:layout_constraintEnd_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/introData_confirm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/b2"
+            android:text="@string/log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/choselocale_spinner"
+            android:layout_width="331dp"
+
+            android:layout_height="64dp"
+
+            android:layout_marginTop="@dimen/b2"
+            android:background="@drawable/rounded_corners_transparent"
+            android:backgroundTint="@color/backgroundDark"
+            android:elevation="@dimen/cardElevation"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@id/introData_spinner" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your_language"
+            android:theme="@style/NormalTextBlack"
+            android:layout_marginBottom="@dimen/m1"
+            app:layout_constraintBottom_toTopOf="@id/choselocale_spinner"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

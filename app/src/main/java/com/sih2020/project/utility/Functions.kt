@@ -153,6 +153,36 @@ object Functions {
         requestQueue.add(request).retryPolicy = retryPolicy
     }
 
+    /**
+     * Custom Post method if you wish to supply custom JSON object
+     * which do not have parsing available
+     */
+    fun postJsonObject(
+        URL: String,
+        fragment: HttpRequests,
+        jsonObject: JSONObject,
+        token: Int
+    ) {
+        requestQueue.cancelAll { true }
+        Log.d(Constants.LOG_TAG, jsonObject.toString() + "from POST METHOD $URL")
+        val request = object : JsonObjectRequest(
+            Method.POST,
+            URL,
+            jsonObject,
+            Response.Listener { response ->
+                fragment.onSuccessPost(response, token)
+            },
+            Response.ErrorListener { error ->
+                fragment.onError(error)
+            }) {
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+
+        }
+        requestQueue.add(request).retryPolicy = retryPolicy
+    }
+
     /*fun parseStatus(status: Int): String =
         when (status) {
             1 -> res.getString(R.string.received)

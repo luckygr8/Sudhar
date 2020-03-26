@@ -129,13 +129,13 @@ class ViewReportRecyclerAdapter(
          * Upvote and didDownvote functionality
          * TODO : send /get requests for didUpvote and didDownvote
          */
-        holder.upvote.setOnClickListener {
-
-        }
-
-        holder.downvote.setOnClickListener {
-
-        }
+//        holder.upvote.setOnClickListener {
+//
+//        }
+//
+//        holder.downvote.setOnClickListener {
+//
+//        }
     }
 
     private fun remove(position: Int) {
@@ -143,30 +143,30 @@ class ViewReportRecyclerAdapter(
         notifyDataSetChanged()
     }
 
-    private fun voteToggle(vote: Int, value: Int, holder: ViewHolder) {
-        /**
-         * vote -> 1 means upvote , -1 means downvote
-         * value -> 1 means did , -1 means undo
-         */
-        when (vote) {
-            1 -> {
-                if (value == 1) // did an upvote DO remove any downvotes
-                {
-                    holder.upvote.setBackgroundResource(R.drawable.didupvote)
-                    holder.downvote.setBackgroundResource(R.drawable.downvote)
-                } else // removed the upvote
-                    holder.upvote.setBackgroundResource(R.drawable.upvote)
-            }
-            -1 -> {
-                if (value == 1) // did a downvote DO remove any upvotes
-                {
-                    holder.downvote.setBackgroundResource(R.drawable.diddownvote)
-                    holder.upvote.setBackgroundResource(R.drawable.upvote)
-                } else // removed the downvote
-                    holder.downvote.setBackgroundResource(R.drawable.downvote)
-            }
-        }
-    }
+//    private fun voteToggle(vote: Int, value: Int, holder: ViewHolder) {
+//        /**
+//         * vote -> 1 means upvote , -1 means downvote
+//         * value -> 1 means did , -1 means undo
+//         */
+//        when (vote) {
+//            1 -> {
+//                if (value == 1) // did an upvote DO remove any downvotes
+//                {
+//                    holder.upvote.setBackgroundResource(R.drawable.didupvote)
+//                    holder.downvote.setBackgroundResource(R.drawable.downvote)
+//                } else // removed the upvote
+//                    holder.upvote.setBackgroundResource(R.drawable.upvote)
+//            }
+//            -1 -> {
+//                if (value == 1) // did a downvote DO remove any upvotes
+//                {
+//                    holder.downvote.setBackgroundResource(R.drawable.diddownvote)
+//                    holder.upvote.setBackgroundResource(R.drawable.upvote)
+//                } else // removed the downvote
+//                    holder.downvote.setBackgroundResource(R.drawable.downvote)
+//            }
+//        }
+//    }
 
     private fun setValues(problem: Problem, holder: ViewHolder) {
         holder.viewportsUpper.setBackgroundColor(Functions.getRandomMaterialColor())
@@ -175,7 +175,7 @@ class ViewReportRecyclerAdapter(
         holder.address.text = problem.address
         holder.landmark.text = problem.landmark
         holder.status.text = problem.status
-        holder.city.text = problem.city
+//        holder.city.text = problem.city
         holder.date.text = problem.date
 
         // See if the problem has some image URL
@@ -195,14 +195,14 @@ class ViewReportRecyclerAdapter(
         var address: TextView = itemView.findViewById(R.id.address)
         var description: TextView = itemView.findViewById(R.id.description)
         var status: TextView = itemView.findViewById(R.id.status)
-        var city: TextView = itemView.findViewById(R.id.city)
+//        var city: TextView = itemView.findViewById(R.id.city)
         var date: TextView = itemView.findViewById(R.id.date)
         var displayImage: ImageView = itemView.findViewById(R.id.displayImage)
         var displayMap: ImageView = itemView.findViewById(R.id.displayMap)
 
         // Added 25-01-2020
-        var upvote: ImageView = itemView.findViewById(R.id.upvote)
-        var downvote: ImageView = itemView.findViewById(R.id.downvote)
+//        var upvote: ImageView = itemView.findViewById(R.id.upvote)
+//        var downvote: ImageView = itemView.findViewById(R.id.downvote)
 
     }
 }

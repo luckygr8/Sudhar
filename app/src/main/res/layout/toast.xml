@@ -7,13 +7,12 @@ android:background="@drawable/toast_background"
     android:layout_height="wrap_content">
 
     <TextView
-        android:padding="@dimen/p1"
         android:textAlignment="center"
         android:id="@+id/toastMessage"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="@dimen/md"
+        android:textSize="@dimen/l"
         android:fontFamily="@font/quicksand_bold"
         android:text="@string/dummy_string"
         />

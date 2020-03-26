@@ -68,6 +68,12 @@
     <string name="fill_correct_value">fill correct value</string>
 
     <string name="welcome">Welcome,</string>
+    <string name="edit_preferences">Edit\nPreferences</string>
+    <string name="delete_my_profile">Delete my Sudhar Profile</string>
+    <string name="log_out">Log out of Sudhar</string>
+    <string name="do_u_wanna_log_out">Do you really wish to log out ?</string>
+
+    <string name="choose_your_language">Choose your language</string>
 
     <!---->
 

@@ -38,10 +38,10 @@
         <item name="android:textColor">@color/black3</item>
     </style>
 
-    <style name="AppTheme_Orange" parent="MyTheme">
-        <item name="colorPrimary">@color/primaryOrange</item>
-        <item name="colorPrimaryDark">@color/primaryOrange</item>
-        <item name="colorAccent">@color/accentPurple</item>
+    <style name="AppTheme_Dark" parent="MyTheme">
+        <item name="colorPrimary">@color/primaryDark</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/white</item>
         <item name="android:textColor">@color/black3</item>
     </style>
 

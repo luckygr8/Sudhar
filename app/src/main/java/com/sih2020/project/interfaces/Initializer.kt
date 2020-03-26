@@ -6,8 +6,8 @@ import com.sih2020.project.constants.Constants
 interface Initializer {
     fun bindViews()
 
-    fun print(message: String) {
-        Log.d(Constants.LOG_TAG, message)
+    fun print(message: Any) {
+        Log.d(Constants.LOG_TAG, message.toString())
     }
 
 
