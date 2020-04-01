@@ -1,6 +1,7 @@
 package com.sih2020.project.intro
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -68,5 +69,7 @@ class IntroActivity : BaseActivity() {
             else -> ViewReportsFragment()
         }
     }
+
+    fun start(view: View) {}
 
 }

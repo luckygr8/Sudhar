@@ -10,7 +10,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_track">Share</string>
     <string name="menu_send">Send</string>
     <string name="menu_viewProblems">रिपोर्ट देखें</string>
     <string name="menu_reportProblems">समस्य दर्ज़ करे</string>
@@ -77,7 +77,14 @@
     <string name="fill_this_value">इस मान को भरें</string>
     <string name="fill_correct_value">सही मूल्य भरें</string>
 
+    <string name="enter_problem_id">यहां समस्या कोड दर्ज करें</string>
+
     <string name="welcome">आप का स्वागत है,</string>
+
+    <string name="contact_us">हमसे संपर्क करना चाहते हैं? बस यहाँ क्लिक करें</string>
+
+    <string name="track_progress">समस्या की प्रगति</string>
+    <string name="processing">प्रतीक्षा कीजिये…</string>
 
     <!---->
 </resources>

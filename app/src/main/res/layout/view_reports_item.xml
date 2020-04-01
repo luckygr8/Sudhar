@@ -79,15 +79,6 @@
                     android:text="@string/dummy_string"
                     android:layout_height="wrap_content"/>
 
-<!--                &lt;!&ndash; city &ndash;&gt;-->
-<!--                <TextView-->
-<!--                    android:id="@+id/city"-->
-<!--                    android:layout_marginTop="@dimen/m2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:textSize="@dimen/md"-->
-<!--                    android:text="@string/dummy_string"-->
-<!--                    android:layout_height="wrap_content"/>-->
-
                 <!-- description -->
                 <TextView
                     android:id="@+id/description"
@@ -107,57 +98,6 @@
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
 
-<!--                <LinearLayout-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:gravity="center"-->
-<!--                    android:padding="@dimen/p1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="match_parent">-->
-
-<!--                    &lt;!&ndash; upvote and view how many upvotes &ndash;&gt;-->
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginEnd="@dimen/m1"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/upvote"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:src="@drawable/upvote"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:contentDescription="@string/upvote" />-->
-
-<!--                        <TextView-->
-<!--                            android:layout_below="@id/upvote"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:text="0"-->
-<!--                            android:layout_height="wrap_content"/>-->
-
-
-<!--                    </RelativeLayout>-->
-
-<!--                    &lt;!&ndash; downvote &ndash;&gt;-->
-<!--                    <RelativeLayout-->
-<!--                        android:layout_marginStart="@dimen/m1"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/downvote"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:src="@drawable/downvote"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:contentDescription="@string/downvote" />-->
-
-<!--                        <TextView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:text="0"-->
-<!--                            android:layout_below="@id/downvote"-->
-<!--                            android:layout_height="wrap_content"/>-->
-<!--                    </RelativeLayout>-->
-
-<!--                </LinearLayout>-->
-
                 <!-- for status-->
                 <TextView
                     android:padding="@dimen/p1"
@@ -172,26 +112,61 @@
                     android:textSize="@dimen/sm"
                     android:layout_height="wrap_content"/>
 
+                <!-- for ward-->
+                <TextView
+                    android:padding="@dimen/p1"
+                    android:layout_toEndOf="@id/status"
+                    android:layout_marginStart="@dimen/m1"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:background="@drawable/rounded_corners"
+                    android:id="@+id/ward"
+                    android:layout_width="wrap_content"
+                    android:text="@string/dummy_string"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="@dimen/sm"
+                    android:layout_height="wrap_content"/>
+
                 <!-- for date-->
                 <TextView
                     android:id="@+id/date"
                     android:layout_marginStart="@dimen/m3"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/status"
+                    android:layout_toEndOf="@id/ward"
                     android:layout_width="wrap_content"
                     android:textSize="@dimen/sm"
                     android:text="@string/dummy_string"
                     android:layout_height="wrap_content"/>
 
+            </RelativeLayout>
+
+            <!-- divider-->
+            <ImageView
+                android:layout_marginTop="@dimen/m2"
+                android:layout_gravity="center"
+                android:src="@drawable/divider"
+                android:layout_width="@dimen/b7"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
                 <ImageView
+                    android:padding="@dimen/p0"
                     android:id="@+id/clipboard"
                     android:src="@drawable/clipboard"
                     android:layout_margin="@dimen/m2"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

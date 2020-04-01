@@ -24,10 +24,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.sih2020.project.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_track"
+        android:name="com.sih2020.project.track.TrackFragment"
+        android:label="@string/menu_track"
+        tools:layout="@layout/fragment_track" />
 
     <fragment
         android:id="@+id/nav_send"

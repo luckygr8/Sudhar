@@ -38,7 +38,10 @@ class Problem(
     var wardid: String = "",
 
     @SerializedName(Constants.PROBLEM_CITY)
-    var city: String = ""
+    var city: String = "",
+
+    @SerializedName(Constants._ID)
+    var _id:String = ""
 ) {
 
     override fun equals(other: Any?): Boolean {

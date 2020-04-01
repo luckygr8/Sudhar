@@ -177,6 +177,8 @@ class ViewReportRecyclerAdapter(
         holder.status.text = problem.status
 //        holder.city.text = problem.city
         holder.date.text = problem.date
+        holder.ward.text = problem.wardid
+        holder._id.text = problem._id
 
         // See if the problem has some image URL
         if (problem.imageid.isEmpty())
@@ -199,6 +201,8 @@ class ViewReportRecyclerAdapter(
         var date: TextView = itemView.findViewById(R.id.date)
         var displayImage: ImageView = itemView.findViewById(R.id.displayImage)
         var displayMap: ImageView = itemView.findViewById(R.id.displayMap)
+        var ward:TextView = itemView.findViewById(R.id.ward)
+        var _id:TextView = itemView.findViewById(R.id._id)
 
         // Added 25-01-2020
 //        var upvote: ImageView = itemView.findViewById(R.id.upvote)

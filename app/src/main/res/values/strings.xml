@@ -12,7 +12,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_track">Track</string>
     <string name="menu_send">Send</string>
     <string name="menu_viewProblems">View Reports</string>
     <string name="menu_reportProblems">Report a Problem</string>
@@ -74,6 +74,11 @@
     <string name="do_u_wanna_log_out">Do you really wish to log out ?</string>
 
     <string name="choose_your_language">Choose your language</string>
+    <string name="contact_us">Want to contact us ? just click here</string>
+    <string name="enter_problem_id">Enter Problem Code here</string>
+
+    <string name="track_progress">TRACK PROGRESS</string>
+    <string name="processing">Processing…</string>
 
     <!---->
 

@@ -1,20 +1,19 @@
 package com.sih2020.project.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.login.LoginFragment
 import com.sih2020.project.utility.Functions
-import com.sih2020.project.utility.MultiFabs
-import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -27,14 +26,28 @@ class HomeFragment : Fragment(), Initializer {
     private lateinit var fragment: Fragment
 
     private lateinit var homeLogo:ImageView
+    private lateinit var contactUs:TextView
+    private lateinit var track:FloatingActionButton
 
     override fun bindViews() {
         homeLogo = root.findViewById(R.id.home_logo)
+        contactUs = root.findViewById(R.id.contactUs)
+
         CoroutineScope(Dispatchers.Main).launch {
             while(true){
                 delay(30)
                 homeLogo.animate().rotationBy(10f).start()
             }
+        }
+
+        contactUs.setOnClickListener{
+            val intent = Intent(Intent.ACTION_SEND)
+            val recipients = arrayOf(Constants.SUDHAR_MAIL)
+
+            intent.putExtra(Intent.EXTRA_EMAIL,recipients)
+            intent.putExtra(Intent.EXTRA_SUBJECT,Constants.MAIL_SUBJECT)
+            intent.type = "text/html"
+            startActivity(Intent.createChooser(intent, "Send mail via"))
         }
     }
 

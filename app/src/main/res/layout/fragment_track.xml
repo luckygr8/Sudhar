@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".track__.ProgressTracking">
+
+    <TextView
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/hg1"
+
+        android:letterSpacing="0.2"
+        android:text="@string/track_progress"
+        android:theme="@style/HeadingBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- SENT -->
+    <ImageView
+        android:layout_width="@dimen/coinWidth"
+        android:layout_height="@dimen/coinHeight"
+        android:src="@drawable/unknown_coin"
+        app:layout_constraintBottom_toTopOf="@id/hg2"
+
+        app:layout_constraintEnd_toStartOf="@id/vg2"
+
+        app:layout_constraintStart_toEndOf="@id/vg1"
+        app:layout_constraintTop_toBottomOf="@id/hg1" />
+
+    <!-- VERIFIED -->
+    <ImageView
+        android:layout_width="@dimen/coinWidth"
+        android:layout_height="@dimen/coinHeight"
+        android:src="@drawable/unknown_coin"
+        app:layout_constraintBottom_toTopOf="@id/hg3"
+
+        app:layout_constraintEnd_toStartOf="@id/vg2"
+
+        app:layout_constraintStart_toEndOf="@id/vg1"
+        app:layout_constraintTop_toBottomOf="@id/hg2" />
+
+    <!-- PROGRESS -->
+    <ImageView
+        android:layout_width="@dimen/coinWidth"
+        android:layout_height="@dimen/coinHeight"
+        android:src="@drawable/unknown_coin"
+        app:layout_constraintBottom_toTopOf="@id/hg4"
+
+        app:layout_constraintEnd_toStartOf="@id/vg2"
+
+        app:layout_constraintStart_toEndOf="@id/vg1"
+        app:layout_constraintTop_toBottomOf="@id/hg3" />
+
+    <!-- DONE -->
+    <ImageView
+        android:layout_width="@dimen/coinWidth"
+        android:layout_height="@dimen/coinHeight"
+        android:src="@drawable/unknown_coin"
+
+        app:layout_constraintEnd_toStartOf="@id/vg2"
+
+        app:layout_constraintStart_toEndOf="@id/vg1"
+        app:layout_constraintTop_toBottomOf="@id/hg5" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@id/hg5"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toEndOf="@id/vg2"
+        app:layout_constraintTop_toBottomOf="@id/hg3" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/received"
+        android:theme="@style/HeadingBlack"
+
+        app:layout_constraintBottom_toTopOf="@id/hg2"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/vg2"
+        app:layout_constraintTop_toBottomOf="@id/hg1" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verified"
+        android:theme="@style/HeadingBlack"
+
+        app:layout_constraintBottom_toTopOf="@id/hg3"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/vg2"
+        app:layout_constraintTop_toBottomOf="@id/hg2" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+
+        android:theme="@style/HeadingBlack"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/vg2"
+        app:layout_constraintTop_toBottomOf="@id/hg5" />
+
+
+    <!-- GUIDES :: DO NOT MESS WITH-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="140dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="70dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="170dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="270dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hg4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="370dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hg5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="570dp" />
+
+    <com.skydoves.progressview.ProgressView
+        android:rotation="90"
+        android:layout_width="@dimen/b9"
+        android:layout_height="@dimen/b2"
+        app:progressView_colorBackground="@color/white"
+        app:progressView_colorProgress="@color/blendOrangeBrown"
+        app:progressView_progress="80"
+        app:progressView_min="0"
+        app:progressView_max="100"
+        app:progressView_progressFromPrevious="true"
+        app:progressView_autoAnimate="true"
+        app:progressView_radius="12dp"
+        app:progressView_padding="1dp"
+        app:progressView_labelText="80%"
+        app:progressView_labelSize="@dimen/md"
+
+        app:layout_constraintTop_toBottomOf="@id/hg4"
+        app:layout_constraintStart_toEndOf="@id/vg1"
+        app:layout_constraintEnd_toStartOf="@id/vg2"
+        app:layout_constraintBottom_toTopOf="@id/hg5"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

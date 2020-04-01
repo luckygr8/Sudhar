@@ -26,7 +26,11 @@
     <dimen name="xl">20sp</dimen>
     <dimen name="forIntro">60sp</dimen>
 
+    <dimen name="coinHeight">80dp</dimen>
+    <dimen name="coinWidth">80dp</dimen>
+
     <!-- padding sizes -->
+    <dimen name="p0">5dp</dimen>
     <dimen name="p1">10dp</dimen>
     <dimen name="p2">12dp</dimen>
     <dimen name="p3">15dp</dimen>

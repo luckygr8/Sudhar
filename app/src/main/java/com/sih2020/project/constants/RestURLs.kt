@@ -23,10 +23,12 @@ object RestURLs {
     val POST_OTP = "$BASE_URL/otp"
     val POST_OTP_VERIFY = "$BASE_URL/otp/verify"
     val POST_UPDATE_USER = "$BASE_URL/user/update"
+    val PROBLEM_STATUS = "$BASE_URL/problem/status"
 
     val POST_PROBLEM = "$BASE_URL/problem"
     val POST_CHECK_EMAIL = "$BASE_URL/check/"
     val POST_REGISTER = "$BASE_URL/register/"
+
 
     /**
      * URLs only for testing. I made these links in node.js for my testing.

@@ -34,5 +34,16 @@
         android:fontFamily="@font/quicksand_medium"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:id="@+id/contactUs"
+        android:layout_margin="@dimen/m1"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:text="@string/contact_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </RelativeLayout>

@@ -9,6 +9,9 @@ object Constants {
     const val DURATION_LONG =  3000 // 3 seconds
     const val DURATION_OTP = 600000L // 600000L is 10 minutes for the OTP :Long
 
+    const val SUDHAR_MAIL = "sudharproject@gmail.com"
+    const val MAIL_SUBJECT = "feedback for Sudhar"
+
     // Indian States - SORTED.
     val INDIAN_STATES = arrayOf(
 //        "Andhra Pradesh",
@@ -78,6 +81,8 @@ object Constants {
     val OBJECT_TYPE_USER = 1
     val OBJECT_TYPE_OTP  =2
 
+    const val _ID = "_id"
+
     // transfer object :: USER
     const val USER_EMAIL = "email"
     const val USER_PASSWORD = "password"
@@ -96,7 +101,6 @@ object Constants {
     const val PROBLEM_LATITUDE= "latitude"
     const val PROBLEM_CITY = "city"
     const val PROBLEM_LONGITUDE = "longitude"
-    const val PROBLEM_TIME = "time"
     const val PROBLEM_ROAD_TYPE = "roadtype"
 
     // transfer object :: OTP
