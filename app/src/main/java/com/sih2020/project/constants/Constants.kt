@@ -107,5 +107,7 @@ object Constants {
     const val OTP_EMAIL = "email"
     const val OTP_OTP = "otp"
 
-
+    // transfer object type :: News
+    const val NEWS_LINK = "link"
+    const val NEWS_HREF = "href"
 }

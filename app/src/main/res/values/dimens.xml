@@ -49,6 +49,8 @@
     <dimen name="m6">35dp</dimen>
     <dimen name="m7">40dp</dimen>
 
+    <dimen name="mini">5dp</dimen>
+
     <!-- block size -->
     <dimen name="b0">10dp</dimen>
     <dimen name="b1">20dp</dimen>

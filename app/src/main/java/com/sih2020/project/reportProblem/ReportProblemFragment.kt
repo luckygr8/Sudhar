@@ -32,6 +32,7 @@ import com.sih2020.project.transferObjects.Otp
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.Validate
+import kotlinx.android.synthetic.main.fragment_report_problem.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -89,6 +90,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         }
 
         reportproblemCancelphoto.setOnClickListener {
+            reportproblemCancelphoto.refreshDrawableState()
             reportProblemChoosephoto.setImageBitmap(null)
             reportProblemChoosephoto.setBackgroundResource(R.drawable.image_select)
             reportproblemCancelphoto.visibility = View.INVISIBLE

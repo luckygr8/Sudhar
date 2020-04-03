@@ -6,7 +6,27 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
+    <com.smarteist.autoimageslider.SliderView
+        android:elevation="@dimen/defaultElevation"
+        android:id="@+id/newsSlider"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="@color/blendOrangeBrown"
+        app:sliderIndicatorUnselectedColor="@color/black1"
+        app:sliderScrollTimeInSec="1"
+        app:sliderStartAutoCycle="true" />
+
     <ImageView
+
         android:id="@+id/home_logo"
         android:layout_width="@dimen/b9"
         android:layout_height="@dimen/b9"

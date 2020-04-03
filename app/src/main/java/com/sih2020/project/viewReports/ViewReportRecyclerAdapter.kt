@@ -190,7 +190,7 @@ class ViewReportRecyclerAdapter(
 
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var viewportsUpper: LinearLayout = itemView.findViewById(R.id.viewReports_upper)
         var landmark: TextView = itemView.findViewById(R.id.landmark)

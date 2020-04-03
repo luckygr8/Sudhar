@@ -31,7 +31,6 @@
         android:roundIcon="@mipmap/mainlogo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme_Dark">
-        <activity android:name=".track__.ProgressTracking"></activity>
         <activity android:name=".intro.IntroActivity" />
         <activity
             android:name=".spash.SplashActivity"

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+
+        android:id="@+id/announcement_rep"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/m2"
+        android:text="@string/dummy_string"
+        android:textColor="@color/primaryBlue"
+
+        android:textSize="@dimen/md"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/announcement_date"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/m2"
+        android:text="dd/mm/yyyy"
+
+        android:textColor="@color/black1"
+        android:textSize="@dimen/md" />
+
+    <TextView
+
+        android:id="@+id/announcement_message"
+
+        android:layout_below="@id/announcement_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+
+        android:layout_marginTop="@dimen/m0"
+        android:padding="@dimen/p2"
+        android:text="@string/dummy_line"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+
+        android:textSize="@dimen/md"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_margin="@dimen/m1"
+        android:src="@drawable/announcement_underline"
+        android:layout_below="@id/announcement_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/b2"/>
+
+</RelativeLayout>

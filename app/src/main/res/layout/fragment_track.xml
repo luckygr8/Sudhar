@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/back_light"
     android:layout_height="match_parent"
-    tools:context=".track__.ProgressTracking">
+    tools:context=".track.TrackFragment">
 
     <TextView
 
@@ -21,9 +22,10 @@
 
     <!-- SENT -->
     <ImageView
+        android:id="@+id/sentCoin"
         android:layout_width="@dimen/coinWidth"
         android:layout_height="@dimen/coinHeight"
-        android:src="@drawable/unknown_coin"
+        android:src="@drawable/done_coin"
         app:layout_constraintBottom_toTopOf="@id/hg2"
 
         app:layout_constraintEnd_toStartOf="@id/vg2"
@@ -33,9 +35,10 @@
 
     <!-- VERIFIED -->
     <ImageView
+        android:id="@+id/verifiedCoin"
         android:layout_width="@dimen/coinWidth"
         android:layout_height="@dimen/coinHeight"
-        android:src="@drawable/unknown_coin"
+        android:src="@drawable/done_coin"
         app:layout_constraintBottom_toTopOf="@id/hg3"
 
         app:layout_constraintEnd_toStartOf="@id/vg2"
@@ -45,9 +48,10 @@
 
     <!-- PROGRESS -->
     <ImageView
+        android:id="@+id/progressCoin"
         android:layout_width="@dimen/coinWidth"
         android:layout_height="@dimen/coinHeight"
-        android:src="@drawable/unknown_coin"
+        android:src="@drawable/progress_coin"
         app:layout_constraintBottom_toTopOf="@id/hg4"
 
         app:layout_constraintEnd_toStartOf="@id/vg2"
@@ -57,6 +61,7 @@
 
     <!-- DONE -->
     <ImageView
+        android:id="@+id/doneCoin"
         android:layout_width="@dimen/coinWidth"
         android:layout_height="@dimen/coinHeight"
         android:src="@drawable/unknown_coin"
@@ -67,6 +72,8 @@
         app:layout_constraintTop_toBottomOf="@id/hg5" />
 
     <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/announcements"
 
         android:layout_width="250dp"
         android:layout_height="300dp"
@@ -109,6 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/completed"
+
+        android:layout_marginTop="@dimen/m2"
 
         android:theme="@style/HeadingBlack"
 
@@ -173,15 +182,15 @@
         android:layout_width="@dimen/b9"
         android:layout_height="@dimen/b2"
         app:progressView_colorBackground="@color/white"
-        app:progressView_colorProgress="@color/blendOrangeBrown"
-        app:progressView_progress="80"
+        app:progressView_colorProgress="@color/black1"
+        app:progressView_progress="40"
         app:progressView_min="0"
         app:progressView_max="100"
         app:progressView_progressFromPrevious="true"
         app:progressView_autoAnimate="true"
         app:progressView_radius="12dp"
         app:progressView_padding="1dp"
-        app:progressView_labelText="80%"
+        app:progressView_labelText="40%"
         app:progressView_labelSize="@dimen/md"
 
         app:layout_constraintTop_toBottomOf="@id/hg4"

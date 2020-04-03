@@ -25,10 +25,6 @@
                 android:id="@+id/nav_track"
                 android:icon="@drawable/track"
                 android:title="@string/menu_track" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
         </menu>
     </item>
 
