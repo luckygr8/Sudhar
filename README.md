@@ -8,8 +8,6 @@ author Lakshay Dutta
 Sudhar is used for reporting of public issues and generating statistics for government. it is a public welfare project.
 Works on android 5+ (API level 21 and above)
 
-constantly being developed
-
 29th feb 2020 - Sudhar did not make it to SIH :(
 
 The project no longer belongs to @ 'THE TURING MACHINE'
