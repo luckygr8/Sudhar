@@ -19,7 +19,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.interfaces.Initializer
@@ -103,12 +102,12 @@ class IntroData : Fragment(), Initializer, HttpRequests {
         alreadyRegistered = root.findViewById(R.id.introData_alreadyRegistered)
 
 
-        val adapter = ArrayAdapter<String>(
+        /*val adapter = ArrayAdapter<String>(
             MainActivity.getMainContext(),
             R.layout.spinner_item, R.id.citySpinnerText, India.States.INDIAN_STATES
-        )
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
-        states.adapter = adapter
+        )*/
+        /*adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        states.adapter = adapter*/
 
         confirm.setOnClickListener { confirm() }
         alreadyRegistered.setOnClickListener { dialog.show() }

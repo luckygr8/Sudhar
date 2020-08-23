@@ -20,8 +20,8 @@ import com.sih2020.project.interfaces.Initializer
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.R
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
+import com.sih2020.project.transferObjects.City
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.utility.Functions
 import kotlinx.coroutines.CoroutineScope
@@ -54,13 +54,17 @@ class ViewReportsFragment : Fragment(), HttpRequests,
      * received JSON file
      *
      * eg. when token = 1, means the result is for spinner.
-     */
-    private val tokenrecycler = 2
+     **/
 
     override fun onSuccessArrayGet(jsonArray: JSONArray, token: Int) {
         // kotlin's "when" and java's "switch" are pretty much the same
         when (token) {
-            tokenrecycler -> {
+            1->{
+                val type = object : TypeToken<List<City>>() {}.type
+                val cities = gson.fromJson<ArrayList<City>>(jsonArray.toString(), type)
+                attachSpinner(cities)
+            }
+            2 -> {
                 val type = object : TypeToken<List<Problem>>() {}.type
                 val problems = gson.fromJson<ArrayList<Problem>>(jsonArray.toString(), type)
                 attachRecycler(problems)
@@ -87,11 +91,12 @@ class ViewReportsFragment : Fragment(), HttpRequests,
 
         viewReportsSpinner = root.findViewById(R.id.viewReports_spinner)
 
-        val state = Functions.getCurrentUser()?.userstate
-        CoroutineScope(Dispatchers.Main).launch {
-            attachSpinner(India.Cities.getCities(state!!))
-        }
+//        val state = Functions.getCurrentUser()?.userstate
+//        CoroutineScope(Dispatchers.Main).launch {
+//            attachSpinner(India.Cities.getCities(state!!))
+//        }
         // TODO  Functions.getJsonArray("${RestURLs.GET_CITIES}/$state", fragment, tokenSpinner)
+        Functions.getJsonArray(RestURLs.GET_CITIES,fragment,1)
         gson = Gson()
     }
 
@@ -110,11 +115,11 @@ class ViewReportsFragment : Fragment(), HttpRequests,
     /**
      * attach city list to spinner
      */
-    private fun attachSpinner(cities: ArrayList<String>) {
+    private fun attachSpinner(cities: ArrayList<City>) {
 
-        cities.add(0,"Select a city")
+        //cities.add(0,"Select a city")
 
-        val adapter = ArrayAdapter<String>(
+        val adapter = ArrayAdapter<City>(
             MainActivity.getMainContext(),
             R.layout.spinner_item,R.id.citySpinnerText, cities
         )
@@ -134,9 +139,10 @@ class ViewReportsFragment : Fragment(), HttpRequests,
                 position: Int,
                 id: Long
             ) {
-                if (position <= 0) return
-                val city = parent?.getItemAtPosition(position) as String
-                Functions.getJsonArray("${RestURLs.GET_PROBLEMS}/$city", fragment, tokenrecycler)
+                if (position < 0) return
+                val city = parent?.getItemAtPosition(position) as City
+                Log.d("CITY->",city.toString())
+                //Functions.getJsonArray("${RestURLs.GET_PROBLEMS}/$city", fragment, 2)
             }
 
         }

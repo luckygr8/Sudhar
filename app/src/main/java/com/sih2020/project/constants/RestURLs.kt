@@ -1,7 +1,7 @@
 package com.sih2020.project.constants
 
 object RestURLs {
-    val SERVER = "http://192.168.43.26:3000"
+    val SERVER = "http://192.168.29.26:3000"
     val BASE_URL = "${SERVER}/main"
 
     /**

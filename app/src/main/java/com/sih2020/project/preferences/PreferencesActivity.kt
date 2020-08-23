@@ -12,7 +12,6 @@ import com.sih2020.project.R
 import com.sih2020.project.base.BaseActivity
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.transferObjects.User
@@ -37,12 +36,12 @@ class PreferencesActivity : BaseActivity() , HttpRequests {
         confirm = findViewById(R.id.introData_confirm)
         logOut = findViewById(R.id.log_out)
 
-        val adapter = ArrayAdapter<String>(
+        /*val adapter = ArrayAdapter<String>(
             MainActivity.getMainContext(),
             R.layout.spinner_item, R.id.citySpinnerText, India.States.INDIAN_STATES
         )
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
-        states.adapter = adapter
+        states.adapter = adapter*/
 
         confirm.setOnClickListener{
             confirm()

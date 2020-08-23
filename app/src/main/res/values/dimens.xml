@@ -24,7 +24,7 @@
     <dimen name="md">16sp</dimen>
     <dimen name="l">18sp</dimen>
     <dimen name="xl">20sp</dimen>
-    <dimen name="forIntro">60sp</dimen>
+    <dimen name="forIntro">40sp</dimen>
 
     <dimen name="coinHeight">80dp</dimen>
     <dimen name="coinWidth">80dp</dimen>

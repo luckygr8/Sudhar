@@ -23,7 +23,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
-import com.sih2020.project.constants.India
+//import com.sih2020.project.constants.India
 import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.home.HomeFragment
 import com.sih2020.project.interfaces.HttpRequests
@@ -243,14 +243,14 @@ class ReportProblemFragment : Fragment(), HttpRequests,
             adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
             reportProblemType.adapter = adapter
 
-            val cities = India.Cities.getCities(Functions.getCurrentUser()?.userstate!!)
-            cities.add(0, "Select a city")
-            adapter = ArrayAdapter(
-                MainActivity.getMainContext(),
-                R.layout.spinner_item,
-                R.id.citySpinnerText,
-                cities
-            )
+            //val cities = India.Cities.getCities(Functions.getCurrentUser()?.userstate!!)
+//            cities.add(0, "Select a city")
+//            adapter = ArrayAdapter(
+//                MainActivity.getMainContext(),
+//                R.layout.spinner_item,
+//                R.id.citySpinnerText,
+//                cities
+//            )
             adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
             reportProblemCity.adapter = adapter
 
@@ -278,12 +278,12 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     private fun setWardSpinner(city: String) {
         CoroutineScope(Dispatchers.Main).launch {
 
-            val n = India.Cities.getWards(city)
+            //val n = India.Cities.getWards(city)
 
             val wards = ArrayList<String>()
 
-            for (i in 0..n)
-                wards.add("ward $i")
+//            for (i in 0..n)
+//                wards.add("ward $i")
 
             val adapter = ArrayAdapter<String>(
                 MainActivity.getMainContext(),
