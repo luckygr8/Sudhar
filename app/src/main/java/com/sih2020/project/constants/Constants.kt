@@ -79,9 +79,10 @@ object Constants {
 
     val OBJECT_TYPE_PROBLEM = 0
     val OBJECT_TYPE_USER = 1
-    val OBJECT_TYPE_OTP  =2
+    val OBJECT_TYPE_OTP  = 2
+    val OBJECT_TYPE_CITY = 3
 
-    const val _ID = "_id"
+    const val _ID = "id"
 
     // transfer object :: USER
     const val USER_EMAIL = "email"
@@ -106,6 +107,10 @@ object Constants {
     // transfer object :: OTP
     const val OTP_EMAIL = "email"
     const val OTP_OTP = "otp"
+
+    //transfer obj city
+    const val CITY_NAME = "name"
+    const val CITY_PINCODE = "pincode"
 
     // transfer object type :: News
     const val NEWS_LINK = "link"

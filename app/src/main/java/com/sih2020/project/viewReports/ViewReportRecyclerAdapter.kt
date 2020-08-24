@@ -177,7 +177,7 @@ class ViewReportRecyclerAdapter(
         holder.status.text = problem.status
 //        holder.city.text = problem.city
         holder.date.text = problem.date
-        holder.ward.text = problem.wardid
+        holder.ward.text = problem.wardid.toString()
         holder._id.text = problem._id
 
         // See if the problem has some image URL

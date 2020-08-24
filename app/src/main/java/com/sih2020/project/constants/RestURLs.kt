@@ -12,6 +12,7 @@ object RestURLs {
     val GET_CITIES = "$BASE_URL/city"
     val GET_PROBLEMS = "$BASE_URL/problem" //  the /<cityname>/ is appended in the code.
     val GET_NEWS = "$BASE_URL/news"
+    val GET_DEPT = "$BASE_URL/dept"
 
     /**
      *
@@ -24,6 +25,7 @@ object RestURLs {
     val POST_OTP_VERIFY = "$BASE_URL/otp/verify"
     val POST_UPDATE_USER = "$BASE_URL/user/update"
     val PROBLEM_STATUS = "$BASE_URL/problem/status"
+    val POST_WARDS = "$BASE_URL/wards"
 
     val POST_PROBLEM = "$BASE_URL/problem"
     val POST_CHECK_EMAIL = "$BASE_URL/check/"

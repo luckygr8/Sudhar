@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,8 @@ import com.android.volley.VolleyError
 import com.chaos.view.PinView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
@@ -28,8 +31,7 @@ import com.sih2020.project.constants.RestURLs
 import com.sih2020.project.home.HomeFragment
 import com.sih2020.project.interfaces.HttpRequests
 import com.sih2020.project.interfaces.Initializer
-import com.sih2020.project.transferObjects.Otp
-import com.sih2020.project.transferObjects.Problem
+import com.sih2020.project.transferObjects.*
 import com.sih2020.project.utility.Functions
 import com.sih2020.project.utility.Validate
 import kotlinx.android.synthetic.main.fragment_report_problem.*
@@ -66,6 +68,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     private lateinit var reportProblem_otp_verifyotp: MaterialButton
     private lateinit var reportProblem_otp_cancel: MaterialButton
 
+    private lateinit var gson:Gson
 
     // other vars
     private var base64: String = ""
@@ -83,7 +86,7 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         reportProblemDescription = root.findViewById(R.id.reportProblem_description)
         reportProblemPostproblem = root.findViewById(R.id.reportProblem_postProblem)
 
-        attachCitySpinner()
+        //attachCitySpinner()
 
         reportProblemPostproblem.setOnClickListener {
             postProblem()
@@ -170,8 +173,15 @@ class ReportProblemFragment : Fragment(), HttpRequests,
 
 
     override fun onSuccessPost(jsonObject: JSONObject, token: Int) {
+        Log.d("development",jsonObject.toString())
         when (token) {
             1 -> Functions.showToast(jsonObject.getString("message"),true)
+            4 -> {
+                val wardsarray = jsonObject.getJSONArray("wards")
+                val type = object : TypeToken<List<Ward>>() {}.type
+                val wards = gson.fromJson<ArrayList<Ward>>(wardsarray.toString(), type)
+                attatchWardSpinner(wards)
+            }
             2 -> {
                 if (Functions.parseResponse(jsonObject)) {
                     freeze(
@@ -209,11 +219,28 @@ class ReportProblemFragment : Fragment(), HttpRequests,
     }
 
     override fun onSuccessArrayGet(jsonArray: JSONArray, token: Int) {
+        when(token){
+            1 -> {
+                Log.d("development",jsonArray.toString())
+                val type = object : TypeToken<List<City>>() {}.type
+                val cities = gson.fromJson<ArrayList<City>>(jsonArray.toString(), type)
+                attachCitySpinner(cities)
+            }
 
+            2 -> {
+                Log.d("development",jsonArray.toString())
+                val type = object : TypeToken<List<Dept>>() {}.type
+                val depts = gson.fromJson<ArrayList<Dept>>(jsonArray.toString(), type)
+                attatchDeptSpinner(depts)
+            }
+        }
     }
 
     override fun onSuccessObjectGet(jsonObject: JSONObject, token: Int) {
+        Log.d("development",jsonObject.toString())
+        when(token){
 
+        }
     }
 
     override fun onError(volleyError: VolleyError) {
@@ -229,11 +256,89 @@ class ReportProblemFragment : Fragment(), HttpRequests,
         fragment = this
         bindViews()
         dialog.show()
+//        freeze(
+//            true,
+//            reportProblemCity,
+//            reportProblemWard,
+//            reportProblemType,
+//            reportProblemChoosephoto,
+//            reportProblemAddress,
+//            reportProblemLandmark,
+//            reportProblemDescription,
+//            reportProblemPostproblem
+//        )
+        gson = Gson()
+
+        Functions.getJsonArray(RestURLs.GET_CITIES,fragment,1)
+
+        Functions.getJsonArray(RestURLs.GET_DEPT,fragment,2)
 
         return root
     }
 
-    private fun attachCitySpinner() {
+    private fun attatchDeptSpinner(depts: ArrayList<Dept>){
+        val adapter = ArrayAdapter<Dept>(
+            MainActivity.getMainContext(),
+            R.layout.spinner_item,R.id.citySpinnerText, depts
+        )
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
+        reportProblemType.adapter = adapter
+
+        //on item selected
+        reportProblemType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (position < 0) return
+                val dept = parent?.getItemAtPosition(position) as Dept
+                Log.d("development",dept.toString())
+
+            }
+
+        }
+    }
+
+    private fun attachCitySpinner(cities: ArrayList<City>) {
+
+        val adapter = ArrayAdapter<City>(
+            MainActivity.getMainContext(),
+            R.layout.spinner_item,R.id.citySpinnerText, cities
+        )
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
+        reportProblemCity.adapter = adapter
+
+        //on item selected
+        reportProblemCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (position < 0) return
+                val city = parent?.getItemAtPosition(position) as City
+                Log.d("CITY->",city.toString())
+                Functions.postJsonObject(RestURLs.POST_WARDS,fragment,Constants.OBJECT_TYPE_CITY,
+                city,4)
+            }
+
+        }
+    }
+
+    /*private fun attachCitySpinner() {
         CoroutineScope(Dispatchers.Main).launch {
 
             var adapter = ArrayAdapter<String>(
@@ -273,10 +378,41 @@ class ReportProblemFragment : Fragment(), HttpRequests,
             }
 
         }
-    }
+    }*/
 
-    private fun setWardSpinner(city: String) {
-        CoroutineScope(Dispatchers.Main).launch {
+    private fun attatchWardSpinner(wards: ArrayList<Ward>) {
+
+        val adapter = ArrayAdapter<Ward>(
+            MainActivity.getMainContext(),
+            R.layout.spinner_item,R.id.citySpinnerText, wards
+        )
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+
+        reportProblemWard.adapter = adapter
+
+        //on item selected
+        reportProblemWard.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (position < 0) return
+                val ward = parent?.getItemAtPosition(position) as Ward
+                Log.d("development",ward.toString())
+                //Functions.postJsonObject(RestURLs.POST_WARDS,fragment,Constants.OBJECT_TYPE_CITY,
+                    //city,1)
+            }
+
+        }
+
+        //Log.d("development",wards.toString())
+        /*CoroutineScope(Dispatchers.Main).launch {
 
             //val n = India.Cities.getWards(city)
 
@@ -291,14 +427,10 @@ class ReportProblemFragment : Fragment(), HttpRequests,
             )
             adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
             reportProblemWard.adapter = adapter
-        }
+        }*/
     }
 
     private fun postProblem() {
-        if (!Validate.validateSpinners(reportProblemCity)) {
-            Functions.showToast("Please fill all values", true)
-            return
-        }
         if (Validate.validateTextFields(
                 reportProblemAddress,
                 reportProblemLandmark,
@@ -311,10 +443,10 @@ class ReportProblemFragment : Fragment(), HttpRequests,
                     address = reportProblemAddress.text.toString(),
                     landmark = reportProblemLandmark.text.toString(),
                     imageid = base64,
-                    city = reportProblemCity.selectedItem as String,
+                    city = (reportProblemCity.selectedItem as City).pincode,
                     userid = Functions.getCurrentUser()?.useremail!!,
-                    roadtype = reportProblemType.selectedItem as String,
-                    wardid = reportProblemWard.selectedItem as String
+                    roadtype = (reportProblemType.selectedItem as Dept).id,
+                    wardid = (reportProblemWard.selectedItem as Ward).id
                 )
 
                 Functions.postJsonObject(

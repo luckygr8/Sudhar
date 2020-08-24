@@ -14,7 +14,7 @@ class Problem(
     var userid: String = "",
 
     @SerializedName(Constants.PROBLEM_ROAD_TYPE)
-    var roadtype: String = "",
+    var roadtype: Int = 0,
 
     @SerializedName(Constants.PROBLEM_ADDRESS)
     var address: String = "",
@@ -35,10 +35,10 @@ class Problem(
     var longitude: Double = 0.00,
 
     @SerializedName(Constants.PROBLEM_WARDID)
-    var wardid: String = "",
+    var wardid: Int = 0,
 
     @SerializedName(Constants.PROBLEM_CITY)
-    var city: String = "",
+    var city: Int = 0,
 
     @SerializedName(Constants._ID)
     var _id:String = ""

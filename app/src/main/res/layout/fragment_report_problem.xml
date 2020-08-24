@@ -29,7 +29,7 @@
             <Spinner
                 android:id="@+id/reportProblem_city"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/b3"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/m1" />
         </LinearLayout>
 
@@ -49,7 +49,7 @@
             <Spinner
                 android:id="@+id/reportProblem_ward"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/b3"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/m1" />
         </LinearLayout>
 
@@ -70,7 +70,7 @@
             <Spinner
                 android:id="@+id/reportProblem_type"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/b3"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/m1" />
         </LinearLayout>
 

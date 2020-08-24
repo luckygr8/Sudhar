@@ -11,4 +11,8 @@ class Ward (
 
     @SerializedName("cityid")
     var cityid:Int
-)
+){
+    override fun toString(): String {
+        return "Ward($number) of $cityid"
+    }
+}

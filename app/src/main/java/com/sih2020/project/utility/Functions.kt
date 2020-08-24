@@ -38,6 +38,7 @@ import com.sih2020.project.R
 import com.sih2020.project.base.MainActivity
 import com.sih2020.project.constants.Constants
 import com.sih2020.project.interfaces.HttpRequests
+import com.sih2020.project.transferObjects.City
 import com.sih2020.project.transferObjects.Otp
 import com.sih2020.project.transferObjects.Problem
 import com.sih2020.project.transferObjects.User
@@ -247,6 +248,20 @@ object Functions {
 
                     put(Constants.OTP_EMAIL, otp.email)
                     put(Constants.OTP_OTP, otp.otp)
+
+                }
+
+                jsonObject
+            }
+
+            Constants.OBJECT_TYPE_CITY ->{
+                val city = data as City
+
+                jsonObject.run {
+
+
+                    put(Constants.CITY_NAME, city.name)
+                    put(Constants.CITY_PINCODE, city.pincode)
 
                 }
 

@@ -141,8 +141,8 @@ class ViewReportsFragment : Fragment(), HttpRequests,
             ) {
                 if (position < 0) return
                 val city = parent?.getItemAtPosition(position) as City
-                Log.d("CITY->",city.toString())
-                //Functions.getJsonArray("${RestURLs.GET_PROBLEMS}/$city", fragment, 2)
+                Log.d("development",city.toString())
+                Functions.getJsonArray("${RestURLs.GET_PROBLEMS}/${city.pincode}", fragment, 2)
             }
 
         }
